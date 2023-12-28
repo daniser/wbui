@@ -2,5 +2,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/ionic'],
-  ssr: false
+  ssr: false,
+  typescript: {
+    strict: true,
+    tsConfig: {
+      compilerOptions: {
+        verbatimModuleSyntax: false
+      }
+    },
+    typeCheck: true
+  }
 })
