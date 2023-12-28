@@ -16,6 +16,12 @@ export default defineNuxtConfig({
       }
     ]
   ],
+  runtimeConfig: {
+    apiSecret: '',
+    public: {
+      apiBase: ''
+    }
+  },
   ssr: false,
   typescript: {
     strict: true,
