@@ -1969,6 +1969,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vee-validate/nuxt@npm:^4.12.4":
+  version: 4.12.4
+  resolution: "@vee-validate/nuxt@npm:4.12.4"
+  dependencies:
+    "@nuxt/kit": "npm:^3.8.2"
+    local-pkg: "npm:^0.5.0"
+    vee-validate: "npm:4.12.4"
+  checksum: 32c4c46fd04ca16497b9a0fa89cdfc3021cbed37629394664f7fc09089bb2c9e107af865884be8817bf77f3cac61360cc112d7a7675023b3ad4ba6d42d621c53
+  languageName: node
+  linkType: hard
+
 "@vercel/nft@npm:^0.24.3":
   version: 0.24.4
   resolution: "@vercel/nft@npm:0.24.4"
@@ -2137,7 +2148,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/devtools-api@npm:^6.5.0":
+"@vue/devtools-api@npm:^6.5.0, @vue/devtools-api@npm:^6.5.1":
   version: 6.5.1
   resolution: "@vue/devtools-api@npm:6.5.1"
   checksum: d28b00a64df2c5b3351f74ad28ec7fe65e9ee6e20e585c0130ae6ab74b7e616d4eda3b3e82d39ad391e959be4bbb7aa7221d8253bbca1f3021ad07d4430095f9
@@ -8289,6 +8300,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"type-fest@npm:^4.8.3":
+  version: 4.9.0
+  resolution: "type-fest@npm:4.9.0"
+  checksum: 7e6423f7337928a7323ce8a68cfbbaf30ecb70b9c635207899e58297d219c71be4a8c50b52afb9fe09c9f44b2c4276d0a44bb95acabab7bc942455f980aad267
+  languageName: node
+  linkType: hard
+
 "typedarray-to-buffer@npm:^3.1.5":
   version: 3.1.5
   resolution: "typedarray-to-buffer@npm:3.1.5"
@@ -8638,6 +8656,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vee-validate@npm:4.12.4":
+  version: 4.12.4
+  resolution: "vee-validate@npm:4.12.4"
+  dependencies:
+    "@vue/devtools-api": "npm:^6.5.1"
+    type-fest: "npm:^4.8.3"
+  peerDependencies:
+    vue: ^3.3.11
+  checksum: 41b195e57ea8bd136cbe081bcdb829257516eb812f1cb89de8ca20c674fb6943dd4bed894b60079057f44f15c52d42bb9448176fad97ab78c945890c32d1a8a5
+  languageName: node
+  linkType: hard
+
 "vite-node@npm:^1.1.0":
   version: 1.1.0
   resolution: "vite-node@npm:1.1.0"
@@ -8920,6 +8950,7 @@ __metadata:
   resolution: "wbui@workspace:."
   dependencies:
     "@nuxtjs/ionic": "npm:^0.12.1"
+    "@vee-validate/nuxt": "npm:^4.12.4"
     nuxt: "npm:^3.9.0"
     typescript: "npm:^5.3.3"
     vue: "npm:^3.3.13"
