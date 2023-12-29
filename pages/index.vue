@@ -30,7 +30,7 @@
             <ion-col>
               <ion-label>Date</ion-label>
               <vee-field name="date" v-slot="{ handleChange, value }">
-                <ion-datetime name="date" presentation="date" :value="value" @input="handleChange" />
+                <ion-datetime name="date" presentation="date" :value="value" @ion-change="handleChange" />
               </vee-field>
               <vee-error-message name="date" />
             </ion-col>
