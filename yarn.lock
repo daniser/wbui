@@ -696,13 +696,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdi/font@npm:^7.4.47":
-  version: 7.4.47
-  resolution: "@mdi/font@npm:7.4.47"
-  checksum: 4cd44a9e9c40218f00d2500f7408f913ac276348054c9c1b0108330060fecb3cb58c8c08eda39a7535298aaf3f1d28c0c115751cfe9fc2c9cdb9d50450107db9
-  languageName: node
-  linkType: hard
-
 "@netlify/functions@npm:^2.4.0":
   version: 2.4.1
   resolution: "@netlify/functions@npm:2.4.1"
@@ -927,7 +920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.9.1, @nuxt/kit@npm:^3.8.2":
+"@nuxt/kit@npm:3.9.1, @nuxt/kit@npm:^3.8.2, @nuxt/kit@npm:^3.9.0":
   version: 3.9.1
   resolution: "@nuxt/kit@npm:3.9.1"
   dependencies:
@@ -6672,6 +6665,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unconfig@npm:^0.3.11":
+  version: 0.3.11
+  resolution: "unconfig@npm:0.3.11"
+  dependencies:
+    "@antfu/utils": "npm:^0.7.6"
+    defu: "npm:^6.1.2"
+    jiti: "npm:^1.20.0"
+    mlly: "npm:^1.4.2"
+  checksum: 9dcfd1904b11e498aee8d8ea9360f54a066a6e11d70cca5f98b6cd877e3add88b735d0fdd1350930b5dabe8ebee1d2da91fac84e851a4fd98d56f9c7d600f305
+  languageName: node
+  linkType: hard
+
 "uncrypto@npm:^0.1.3":
   version: 0.1.3
   resolution: "uncrypto@npm:0.1.3"
@@ -7270,7 +7275,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuetify@npm:^3.4.9":
+"vuetify-nuxt-module@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "vuetify-nuxt-module@npm:0.8.0"
+  dependencies:
+    "@nuxt/kit": "npm:^3.9.0"
+    defu: "npm:^6.1.3"
+    destr: "npm:^2.0.2"
+    local-pkg: "npm:^0.5.0"
+    pathe: "npm:^1.1.1"
+    perfect-debounce: "npm:^1.0.0"
+    ufo: "npm:^1.3.2"
+    unconfig: "npm:^0.3.11"
+    vite-plugin-vuetify: "npm:^2.0.1"
+    vuetify: "npm:^3.4.8"
+  checksum: 8615f2d2238078210aa287657ce5bc33d1884892edfe78f6de48856c3c1368f6f2d232494ab4267ecfd0199bd9c8a8895f33bf3cdec547da9a896b82f4a249a4
+  languageName: node
+  linkType: hard
+
+"vuetify@npm:^3.4.8":
   version: 3.4.9
   resolution: "vuetify@npm:3.4.9"
   peerDependencies:
@@ -7296,14 +7319,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wbui@workspace:."
   dependencies:
-    "@mdi/font": "npm:^7.4.47"
     nuxt: "npm:^3.9.1"
     typescript: "npm:^5.3.3"
-    vite-plugin-vuetify: "npm:^2.0.1"
     vue: "npm:^3.4.6"
     vue-router: "npm:^4.2.5"
     vue-tsc: "npm:^1.8.27"
-    vuetify: "npm:^3.4.9"
+    vuetify-nuxt-module: "npm:^0.8.0"
   languageName: unknown
   linkType: soft
 
