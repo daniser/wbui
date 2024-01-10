@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["@nuxtjs/eslint-config-typescript", "prettier"],
+  extends: ["@nuxt/eslint-config", "prettier"],
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
