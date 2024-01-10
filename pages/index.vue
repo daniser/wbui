@@ -8,20 +8,20 @@
           <v-col>
             <v-text-field v-model="formattedDate" readonly label="Date">
               <v-overlay
-                  open-on-click
-                  close-on-content-click
-                  activator="parent"
-                  location-strategy="connected"
-                  location="bottom center"
-                  origin="auto"
+                open-on-click
+                close-on-content-click
+                activator="parent"
+                location-strategy="connected"
+                location="bottom center"
+                origin="auto"
               >
                 <v-date-picker
-                    v-model="dateTo"
-                    landscape
-                    show-adjacent-months
-                    hide-header
-                    color="primary"
-                    elevation="12"
+                  v-model="dateTo"
+                  landscape
+                  show-adjacent-months
+                  hide-header
+                  color="primary"
+                  elevation="12"
                 />
               </v-overlay>
             </v-text-field>
@@ -34,28 +34,28 @@
 </template>
 
 <script setup lang="ts">
-import { useDate } from 'vuetify';
+import { useDate } from "vuetify";
 
 const date = useDate();
 const config = useRuntimeConfig();
 
-const locations = ['MOW', 'LED', 'KGD'];
+const locations = ["MOW", "LED", "KGD"];
 
 const dateTo = ref();
 const result = ref();
 
-const formattedDate = computed(() => date.format(dateTo.value, 'keyboardDate'));
+const formattedDate = computed(() => date.format(dateTo.value, "keyboardDate"));
 
 const fields = reactive({
-  from: '',
-  to: '',
-  date: formattedDate.value
+  from: "",
+  to: "",
+  date: formattedDate.value,
 });
 
 const onSubmit = async () => {
   result.value = await useFetch(`${config.public.apiBase}/search`, {
-    method: 'post',
-    body: new URLSearchParams(fields)
+    method: "post",
+    body: new URLSearchParams(fields),
   });
 };
 </script>
