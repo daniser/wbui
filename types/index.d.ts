@@ -497,7 +497,7 @@ export interface ServiceName {
   transcript: string;
 }
 
-export interface State<TQuery = Query, TResult = Result> {
+export interface State<TQuery extends Query = Query, TResult extends Result = Result> {
   id: string;
   sessionId: string;
   baseUri: string;
