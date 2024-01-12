@@ -561,8 +561,7 @@ export interface SearchResult extends Result {
   initTime?: string;
 }
 
-type SelectFlight = Pick<Flight, "token">;
-type SelectFlightGroup = Pick<FlightGroup, "token" | "itineraries">;
+export type SearchState = State<SearchQuery, SearchResult>;
 
 export interface SelectQuery extends Query {
   parameters: {
@@ -592,6 +591,8 @@ export interface SelectResult extends Result {
   flightGroups: FlightGroup[];
   initTime?: string;
 }
+
+export type SelectState = State<SelectQuery, SelectResult>;
 
 export interface BookQuery extends Query {
   parameters: {
