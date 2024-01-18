@@ -43,9 +43,9 @@
               <v-expansion-panel v-for="(itinerary, index) in flightGroup.itineraries" :key="index" :value="true">
                 <v-expansion-panel-title>
                   {{ itinerary.flights[0].segments[0].cityBegin.name }} ({{
-                    itinerary.flights[0].segments[0].cityBegin.name
-                  }}) - {{ itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].cityBegin.name }} ({{
-                    itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].cityBegin.name
+                    itinerary.flights[0].segments[0].locationBegin.name
+                  }}) - {{ itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].cityEnd.name }} ({{
+                    itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].locationEnd.name
                   }})
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
