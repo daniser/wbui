@@ -8,6 +8,7 @@ export default defineNuxtConfig({
         lintOnStart: false,
       },
     ],
+    "@nuxtjs/tailwindcss",
     "vuetify-nuxt-module",
   ],
   runtimeConfig: {
