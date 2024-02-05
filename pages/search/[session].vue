@@ -1,18 +1,18 @@
 <template>
-  <v-main v-if="state">
-    <div v-for="(message, index) in state.result.messages" :key="index">{{ message.message }}</div>
+  <v-main v-if="result">
+    <div v-for="(message, index) in result.messages" :key="index">{{ message.message }}</div>
     <v-expansion-panels variant="accordion" multiple>
-      <v-expansion-panel v-for="flightGroup in state.result.flightGroups" :key="flightGroup.token">
+      <v-expansion-panel v-for="flightGroup in result.flightGroups" :key="flightGroup.token">
         <v-expansion-panel-title>
           <v-row no-gutters>
             <v-col>
               <div v-for="(itinerary, index) in flightGroup.itineraries" :key="index">
-                {{ itinerary.flights[0].segments[0].dateBegin.date }}
+                {{ itinerary.flights[0].segments[0].dateBegin }}
               </div>
             </v-col>
             <v-col>
               <div v-for="(itinerary, index) in flightGroup.itineraries" :key="index">
-                {{ itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].dateEnd.date }}
+                {{ itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].dateEnd }}
               </div>
             </v-col>
             <v-col>
@@ -55,7 +55,7 @@
                         <v-col>
                           <div>{{ segment.locationBegin.name }} ({{ segment.locationBegin.code }})</div>
                           <div>{{ segment.cityBegin.name }}, {{ segment.countryBegin.name }}</div>
-                          <div>{{ segment.dateBegin.date }}</div>
+                          <div>{{ segment.dateBegin }}</div>
                         </v-col>
                         <v-col>
                           <div>{{ segment.carrier.code }}-{{ segment.flightNumber }}</div>
@@ -65,7 +65,7 @@
                         <v-col>
                           <div>{{ segment.locationEnd.name }} ({{ segment.locationEnd.code }})</div>
                           <div>{{ segment.cityEnd.name }}, {{ segment.countryEnd.name }}</div>
-                          <div>{{ segment.dateEnd.date }}</div>
+                          <div>{{ segment.dateEnd }}</div>
                         </v-col>
                         <v-col>
                           <div>Класс бронирования</div>
@@ -91,11 +91,11 @@
 </template>
 
 <script setup lang="ts">
-import type { SearchState } from "~/types";
+import type { SearchResult } from "~/types";
 
 const config = useRuntimeConfig();
 const route = useRoute();
 
-const { data } = await useFetch<SearchState>(`${config.public.apiBase}/search/${route.params.session}`);
-const state = computed<SearchState | null>(() => data.value);
+const { data } = await useFetch<SearchResult>(`${config.public.apiBase}/search/${route.params.session}`);
+const result = computed<SearchResult | null>(() => data.value);
 </script>
