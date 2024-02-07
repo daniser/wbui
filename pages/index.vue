@@ -42,7 +42,6 @@ const config = useRuntimeConfig();
 const locations = ["MOW", "LED", "KGD"];
 
 const dateTo = ref();
-const result = ref();
 
 const formattedDate = computed(() => date.format(dateTo.value, "keyboardDate"));
 
@@ -53,9 +52,11 @@ const fields = reactive({
 });
 
 const onSubmit = async () => {
-  result.value = await useFetch(`${config.public.apiBase}/search`, {
+  const { data } = await useFetch<{ session_id: string }>(`${config.public.apiBase}/search`, {
     method: "post",
     body: new URLSearchParams(fields),
   });
+
+  await navigateTo(`/search/${data.value?.session_id}`);
 };
 </script>

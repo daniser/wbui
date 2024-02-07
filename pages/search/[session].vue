@@ -2,7 +2,7 @@
   <v-main v-if="result">
     <div v-for="(message, index) in result.messages" :key="index">{{ message.message }}</div>
     <v-expansion-panels variant="accordion" multiple>
-      <v-expansion-panel v-for="flightGroup in result.flightGroups" :key="flightGroup.token">
+      <v-expansion-panel v-for="(flightGroup, flightGroupId) in result.flightGroups" :key="flightGroup.token">
         <v-expansion-panel-title>
           <v-row no-gutters>
             <v-col>
@@ -35,6 +35,7 @@
             <v-col>0.02</v-col>
             <v-col>0</v-col>
             <v-col>{{ flightGroup.fares.fareTotal }} ₽</v-col>
+            <v-col><v-btn color="primary" @click.stop="onSelect(flightGroupId)">Select</v-btn></v-col>
           </v-row>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -98,4 +99,11 @@ const route = useRoute();
 
 const { data } = await useFetch<SearchResult>(`${config.public.apiBase}/search/${route.params.session}`);
 const result = computed<SearchResult | null>(() => data.value);
+
+const onSelect = async (fligntGroupId: number) => {
+  await useFetch(`${config.public.apiBase}/select/${route.params.session}`, {
+    method: "post",
+    body: new URLSearchParams({ flightGroupId: fligntGroupId.toString() }),
+  });
+};
 </script>
