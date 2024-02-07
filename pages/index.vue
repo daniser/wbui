@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-form @submit.prevent="onSubmit">
+    <v-form class="h-screen flex items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>
           <v-col><v-autocomplete v-model="fields.from" label="From" :items="locations" /></v-col>
