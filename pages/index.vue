@@ -9,7 +9,6 @@
             <v-text-field v-model="formattedDate" readonly label="Date">
               <v-overlay
                 open-on-click
-                close-on-content-click
                 activator="parent"
                 location-strategy="connected"
                 location="bottom center"
