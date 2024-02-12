@@ -62,10 +62,8 @@
 
 <script setup lang="ts">
 import type { TCountryCode } from "countries-list";
-import { getCountryDataList, getEmojiFlag } from "countries-list";
-import "~/data/countries.ru.min.json";
-import "countries-list/minimal/countries.native.min.json";
-import "countries-list/minimal/countries.emoji.min.json";
+import { getEmojiFlag } from "countries-list";
+import { getLocalizedCountryDataList } from "~/utils/getCountryDataList";
 
 import { maskito as vMaskito } from "@maskito/vue";
 import { maskitoPhoneOptionsGenerator } from "@maskito/phone";
@@ -73,7 +71,7 @@ import metadata from "libphonenumber-js/min/metadata";
 
 const config = useRuntimeConfig();
 
-const countryList = getCountryDataList();
+const countryList = await getLocalizedCountryDataList("ru");
 
 const maskitoPhoneOptions = maskitoPhoneOptionsGenerator({
   metadata,
