@@ -24,21 +24,7 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-autocomplete
-              v-model="fields.citizenship"
-              label="Гражданство"
-              :items="countryList"
-              item-title="name"
-              item-value="iso2"
-              :prefix="getEmojiFlag(fields.citizenship)"
-            >
-              <template #prepend-inner>{{ getEmojiFlag(fields.citizenship) }}</template>
-              <template #item="{ props, item }">
-                <v-list-item v-bind="props" :title="item.raw.name" :subtitle="item.raw.native" :value="item.raw.iso2">
-                  <template #prepend>{{ getEmojiFlag(item.raw.iso2) }}</template>
-                </v-list-item>
-              </template>
-            </v-autocomplete>
+            <CountrySelect v-model="fields.citizenship" label="Гражданство" presentation="name-first" />
           </v-col>
           <v-col>
             <v-select label="Тип документа" />
@@ -62,16 +48,12 @@
 
 <script setup lang="ts">
 import type { TCountryCode } from "countries-list";
-import { getEmojiFlag } from "countries-list";
-import { getLocalizedCountryDataList } from "~/utils/getCountryDataList";
 
 import { maskito as vMaskito } from "@maskito/vue";
 import { maskitoPhoneOptionsGenerator } from "@maskito/phone";
 import metadata from "libphonenumber-js/min/metadata";
 
 const config = useRuntimeConfig();
-
-const countryList = await getLocalizedCountryDataList("ru");
 
 const maskitoPhoneOptions = maskitoPhoneOptionsGenerator({
   metadata,
