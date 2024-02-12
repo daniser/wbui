@@ -28,6 +28,8 @@ import { getLocalizedCountryDataList } from "~/utils/getCountryDataList";
 type Flag = "none" | "emoji" | "prefix" | "svg";
 type Presentation = "name" | "native" | "name-first" | "native-first";
 
+const country = defineModel<TCountryCode>();
+
 const props = withDefaults(
   defineProps<{
     flag?: Flag;
@@ -40,8 +42,6 @@ const props = withDefaults(
 );
 
 const countryList = await getLocalizedCountryDataList("ru");
-
-const country = ref<TCountryCode | null>();
 
 const emoji = computed(() => (country.value ? getEmojiFlag(country.value) : undefined));
 

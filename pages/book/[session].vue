@@ -61,8 +61,8 @@ const maskitoPhoneOptions = maskitoPhoneOptionsGenerator({
   countryIsoCode: "RU",
 });
 
-const fields = reactive<{ citizenship: TCountryCode }>({
-  citizenship: "RU",
+const fields = reactive<{ citizenship?: TCountryCode }>({
+  citizenship: undefined,
 });
 
 const onSubmit = async () => {
