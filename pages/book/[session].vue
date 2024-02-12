@@ -63,7 +63,7 @@
 <script setup lang="ts">
 import type { TCountryCode } from "countries-list";
 import { getCountryDataList, getEmojiFlag } from "countries-list";
-import "countries-list/minimal/countries.en.min.json";
+import "~/data/countries.ru.min.json";
 import "countries-list/minimal/countries.native.min.json";
 import "countries-list/minimal/countries.emoji.min.json";
 
