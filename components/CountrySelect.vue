@@ -48,20 +48,36 @@ const props = withDefaults(
   defineProps<{
     flag?: Flag;
     presentation?: Presentation;
+    favorite?: TCountryCode[];
   }>(),
   {
     flag: "svg",
     presentation: "name-first",
+    favorite: () => [],
   },
 );
-
-const countryList = await getLocalizedCountryDataList("ru");
 
 const emoji = computed(() => (country.value ? getEmojiFlag(country.value) : undefined));
 
 const prefixEmoji = computed(() => (props.flag === "prefix" ? emoji.value : undefined));
 
 const itemTitle = computed(() => (props.presentation.startsWith("name") ? "name" : "native"));
+
+const countryList = await getLocalizedCountryDataList("ru");
+countryList.sort((a, b) => {
+  const aidx = props.favorite.indexOf(a.iso2);
+  const bidx = props.favorite.indexOf(b.iso2);
+
+  if (aidx !== -1 && bidx !== -1) {
+    return aidx - bidx;
+  } else if (aidx === -1 && bidx !== -1) {
+    return 1;
+  } else if (aidx !== -1 && bidx === -1) {
+    return -1;
+  }
+
+  return a[itemTitle.value].localeCompare(b[itemTitle.value]);
+});
 
 function getItemTitle(country: ICountry) {
   return props.presentation.startsWith("name") ? country.name : country.native;

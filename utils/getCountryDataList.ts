@@ -12,5 +12,5 @@ export const getLocalizedCountryDataList = async (locale: string = "en"): Promis
     }
   }
 
-  return countryDataList.sort((a, b) => a.name.localeCompare(b.name));
+  return countryDataList;
 };

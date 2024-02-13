@@ -24,7 +24,7 @@
         </v-row>
         <v-row>
           <v-col>
-            <CountrySelect v-model="fields.citizenship" label="Гражданство" />
+            <CountrySelect v-model="fields.citizenship" label="Гражданство" :favorite="favoriteCountries" />
           </v-col>
           <v-col>
             <v-select label="Тип документа" />
@@ -54,6 +54,24 @@ import { maskitoPhoneOptionsGenerator } from "@maskito/phone";
 import metadata from "libphonenumber-js/min/metadata";
 
 const config = useRuntimeConfig();
+
+const favoriteCountries: TCountryCode[] = [
+  "RU",
+  "AZ",
+  "AM",
+  "BY",
+  "GE",
+  "KZ",
+  "KG",
+  "LV",
+  "LT",
+  "MD",
+  "TJ",
+  "TM",
+  "UZ",
+  "UA",
+  "EE",
+];
 
 const maskitoPhoneOptions = maskitoPhoneOptionsGenerator({
   metadata,
