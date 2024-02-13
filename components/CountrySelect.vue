@@ -69,11 +69,9 @@ countryList.sort((a, b) => {
   const bidx = props.favorite.indexOf(b.iso2);
 
   if (aidx !== -1 && bidx !== -1) {
-    return aidx - bidx;
-  } else if (aidx === -1 && bidx !== -1) {
-    return 1;
-  } else if (aidx !== -1 && bidx === -1) {
-    return -1;
+    return aidx - bidx; // both items in favorite list
+  } else if (aidx !== -1 || bidx !== -1) {
+    return +(aidx === -1) - +(bidx === -1); // one of the items in favorite list
   }
 
   return a[itemTitle.value].localeCompare(b[itemTitle.value]);
