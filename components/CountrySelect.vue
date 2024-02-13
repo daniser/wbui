@@ -5,11 +5,15 @@
     :item-title="itemTitle"
     item-value="iso2"
     :prefix="prefixEmoji"
+    auto-select-first
+    spellcheck="false"
   >
     <template v-if="flag === 'svg'" #prepend-inner>
       <span v-if="country" :class="`fi fi-${country.toLowerCase()}`" />
     </template>
-    <template v-else-if="flag === 'emoji'" #prepend-inner>{{ emoji }}</template>
+    <template v-else-if="flag === 'emoji'" #prepend-inner>
+      <span v-if="emoji" class="w-6 text-center">{{ emoji }}</span>
+    </template>
     <template #item="{ props: itemProps, item }">
       <v-list-item
         v-bind="itemProps"
@@ -17,8 +21,13 @@
         :subtitle="getItemSubtitle(item.raw)"
         :value="item.raw.iso2"
       >
-        <template v-if="flag === 'svg'" #prepend><span :class="`fi fi-${item.raw.iso2.toLowerCase()}`" /></template>
-        <template v-else-if="flag !== 'none'" #prepend>{{ getEmojiFlag(item.raw.iso2) }}</template>
+        <template v-if="flag === 'svg'" #prepend>
+          <span :class="`-ml-1 mr-1.5 fi fi-${item.raw.iso2.toLowerCase()}`" />
+        </template>
+        <template v-else-if="flag !== 'none'" #prepend>
+          <span v-if="flag === 'emoji'" class="-ml-1 mr-1.5 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
+          <span v-else class="-ml-1 mr-0.5 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
+        </template>
       </v-list-item>
     </template>
   </v-autocomplete>
