@@ -24,7 +24,7 @@
         </v-row>
         <v-row>
           <v-col>
-            <CountrySelect v-model="fields.citizenship" label="Гражданство" presentation="name-first" />
+            <CountrySelect v-model="fields.citizenship" label="Гражданство" />
           </v-col>
           <v-col>
             <v-select label="Тип документа" />
