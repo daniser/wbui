@@ -61,27 +61,15 @@ const emoji = computed(() => (country.value ? getEmojiFlag(country.value) : unde
 
 const prefixEmoji = computed(() => (props.flag === "prefix" ? emoji.value : undefined));
 
-const itemTitle = computed(() => {
-  if (props.presentation === "name" || props.presentation === "name-first") {
-    return "name";
-  } else {
-    return "native";
-  }
-});
+const itemTitle = computed(() => (props.presentation.startsWith("name") ? "name" : "native"));
 
 function getItemTitle(country: ICountry) {
-  if (props.presentation === "name" || props.presentation === "name-first") {
-    return country.name;
-  } else {
-    return country.native;
-  }
+  return props.presentation.startsWith("name") ? country.name : country.native;
 }
 
 function getItemSubtitle(country: ICountry) {
-  if (props.presentation === "name-first") {
-    return country.native;
-  } else if (props.presentation === "native-first") {
-    return country.name;
+  if (props.presentation.endsWith("first")) {
+    return props.presentation.startsWith("name") ? country.native : country.name;
   }
 }
 </script>
