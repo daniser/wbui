@@ -3978,9 +3978,9 @@ __metadata:
   linkType: hard
 
 "dotenv@npm:^16.3.1, dotenv@npm:^16.3.2":
-  version: 16.4.3
-  resolution: "dotenv@npm:16.4.3"
-  checksum: 10c0/c6a572b2dab5d71accb7064c90b38dfd4068c2487be859a0f053460fcaa685a7718e78db51d643b32e0736b318988c31f8c45cb4ab99cd620278f537177cb0ab
+  version: 16.4.4
+  resolution: "dotenv@npm:16.4.4"
+  checksum: 10c0/f66ad105144c9106a868c8e244ace6097a0318f63284894e6c7b298c7e096911958837117d936d3c341db550e2fcb21a7a5ad396437638f605460e82b1dd30ee
   languageName: node
   linkType: hard
 
@@ -4006,9 +4006,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.648":
-  version: 1.4.667
-  resolution: "electron-to-chromium@npm:1.4.667"
-  checksum: 10c0/52150413c692470c0fcc9da9eaf020e7c8999f188dcf057d2cde032535d59f4a5201d1cffdffe3d5c86f44dd8feead67e42a509af9fe9055d74dedc491eb62e6
+  version: 1.4.668
+  resolution: "electron-to-chromium@npm:1.4.668"
+  checksum: 10c0/7b67ecb7a2e5f2c129714f3efe1fcc61fe5233c0b5edd43cfdd70189364aef22d7fccdb2e6c6521ad223d3c02c175246c7d0af63486cd7595915a1817cbd8f74
   languageName: node
   linkType: hard
 
@@ -9598,8 +9598,8 @@ __metadata:
   linkType: hard
 
 "vuetify@npm:^3.4.10":
-  version: 3.5.3
-  resolution: "vuetify@npm:3.5.3"
+  version: 3.5.4
+  resolution: "vuetify@npm:3.5.4"
   peerDependencies:
     typescript: ">=4.7"
     vite-plugin-vuetify: ">=1.0.0-alpha.12"
@@ -9615,7 +9615,7 @@ __metadata:
       optional: true
     webpack-plugin-vuetify:
       optional: true
-  checksum: 10c0/592569c9f31193401d304106e581e3a09c762fadb7ed695224f710e764c53e057ce1a5368e6859544bfb58a01ffe3ee849b33d368c26341773295a9cbef85fbe
+  checksum: 10c0/e48745e6eafdc4a16cd5a09fb715c2c31c87a705cf7f3f3d94a0b125bc2e1c2d0b083f39912b7843b091f828bbd0b0b7f67a93b1c480ed3d33c1bf2e1d0b5a3a
   languageName: node
   linkType: hard
 

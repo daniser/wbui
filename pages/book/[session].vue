@@ -35,7 +35,7 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-text-field v-maskito="maskitoPhoneOptions" type="tel" label="Телефон" placeholder="+7 900 123-45-67" />
+            <PhoneField v-model="fields.phone" country="RU" label="Телефон" placeholder="+7 900 123-45-67" />
           </v-col>
           <v-col>
             <v-text-field type="email" label="E-mail" placeholder="i.ivanov@mail.ru" />
@@ -48,10 +48,6 @@
 
 <script setup lang="ts">
 import type { TCountryCode } from "countries-list";
-
-import { maskito as vMaskito } from "@maskito/vue";
-import { maskitoPhoneOptionsGenerator } from "@maskito/phone";
-import metadata from "libphonenumber-js/min/metadata";
 
 const config = useRuntimeConfig();
 
@@ -73,14 +69,9 @@ const favoriteCountries: TCountryCode[] = [
   "EE",
 ];
 
-const maskitoPhoneOptions = maskitoPhoneOptionsGenerator({
-  metadata,
-  strict: false,
-  countryIsoCode: "RU",
-});
-
-const fields = reactive<{ citizenship?: TCountryCode }>({
+const fields = reactive<{ citizenship?: TCountryCode; phone: string }>({
   citizenship: undefined,
+  phone: "",
 });
 
 const onSubmit = async () => {
