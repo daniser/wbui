@@ -35,7 +35,13 @@
         </v-row>
         <v-row>
           <v-col>
-            <PhoneField v-model="fields.phone" country="RU" label="Телефон" placeholder="+7 900 123-45-67" />
+            <PhoneField
+              v-model="fields.phone"
+              country="RU"
+              label="Телефон"
+              placeholder="+7 900 123-45-67"
+              prepend-inner-icon="mdi-phone"
+            />
           </v-col>
           <v-col>
             <v-text-field type="email" label="E-mail" placeholder="i.ivanov@mail.ru" />
