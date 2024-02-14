@@ -24,7 +24,12 @@
         </v-row>
         <v-row>
           <v-col>
-            <CountrySelect v-model="fields.citizenship" label="Гражданство" :favorite="favoriteCountries" />
+            <CountrySelect
+              v-model="fields.citizenship"
+              label="Гражданство"
+              :favorite="favoriteCountries"
+              prepend-inner-icon="mdi-passport-biometric"
+            />
           </v-col>
           <v-col>
             <v-select label="Тип документа" />
@@ -44,8 +49,9 @@
             />
           </v-col>
           <v-col>
-            <v-text-field type="email" label="E-mail" placeholder="i.ivanov@mail.ru" />
+            <v-text-field type="email" label="E-mail" placeholder="i.ivanov@mail.ru" prepend-inner-icon="mdi-at" />
           </v-col>
+          <v-col />
         </v-row>
       </v-container>
     </v-form>

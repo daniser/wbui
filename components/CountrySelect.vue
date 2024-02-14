@@ -5,14 +5,13 @@
     :item-title="itemTitle"
     item-value="iso2"
     :prefix="prefixEmoji"
+    :prepend-inner-icon="prependInnerIconFallback"
     auto-select-first
     spellcheck="false"
   >
-    <template v-if="flag === 'svg'" #prepend-inner>
-      <span v-if="country" :class="`fi fi-${country.toLowerCase()}`" />
-    </template>
-    <template v-else-if="flag === 'emoji'" #prepend-inner>
-      <span v-if="emoji" class="w-6 text-center">{{ emoji }}</span>
+    <template v-if="prependFlag && country" #prepend-inner>
+      <FlagIcon v-if="flag === 'svg'" :country="country" />
+      <span v-else-if="flag === 'emoji'" class="w-6 text-center">{{ getEmojiFlag(country) }}</span>
     </template>
     <template #item="{ props: itemProps, item }">
       <v-list-item
@@ -22,7 +21,7 @@
         :value="item.raw.iso2"
       >
         <template v-if="flag === 'svg'" #prepend>
-          <span :class="`-ml-1 mr-1.5 fi fi-${item.raw.iso2.toLowerCase()}`" />
+          <FlagIcon :country="item.raw.iso2" class="-ml-1 -mr-6" />
         </template>
         <template v-else-if="flag !== 'none'" #prepend>
           <span v-if="flag === 'emoji'" class="-ml-1 mr-1.5 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
@@ -37,7 +36,7 @@
 import type { ICountry, TCountryCode } from "countries-list";
 import { getEmojiFlag } from "countries-list";
 import { getLocalizedCountryDataList } from "~/utils/getCountryDataList";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
+import type { VAutocomplete } from "vuetify/components";
 
 type Flag = "none" | "emoji" | "prefix" | "svg";
 type Presentation = "name" | "native" | "name-first" | "native-first";
@@ -49,17 +48,25 @@ const props = withDefaults(
     flag?: Flag;
     presentation?: Presentation;
     favorite?: TCountryCode[];
+    prependInnerIcon?: VAutocomplete["prependInnerIcon"];
   }>(),
   {
     flag: "svg",
     presentation: "name-first",
     favorite: () => [],
+    prependInnerIcon: undefined,
   },
 );
 
-const emoji = computed(() => (country.value ? getEmojiFlag(country.value) : undefined));
+const prependFlag = computed(() => props.flag === "svg" || props.flag === "emoji");
 
-const prefixEmoji = computed(() => (props.flag === "prefix" ? emoji.value : undefined));
+const prefixEmoji = computed(() =>
+  props.flag === "prefix" && country.value ? getEmojiFlag(country.value) : undefined,
+);
+
+const prependInnerIconFallback = computed(() =>
+  prependFlag.value && country.value ? undefined : props.prependInnerIcon,
+);
 
 const itemTitle = computed(() => (props.presentation.startsWith("name") ? "name" : "native"));
 
