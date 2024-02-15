@@ -27,7 +27,8 @@
             <CountrySelect
               v-model="fields.citizenship"
               label="Гражданство"
-              :favorite="favoriteCountries"
+              :preferred="preferredCountries"
+              :excluded="['AQ']"
               prepend-inner-icon="mdi-passport"
             />
           </v-col>
@@ -65,7 +66,7 @@ import type { TCountryCode } from "countries-list";
 
 const config = useRuntimeConfig();
 
-const favoriteCountries: TCountryCode[] = [
+const preferredCountries: TCountryCode[] = [
   "RU",
   "AZ",
   "AM",

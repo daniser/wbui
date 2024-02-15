@@ -48,13 +48,17 @@ const props = withDefaults(
   defineProps<{
     flag?: Flag;
     presentation?: Presentation;
-    favorite?: TCountryCode[];
+    preferred?: TCountryCode[];
+    excluded?: TCountryCode[];
+    only?: TCountryCode[];
     prependInnerIcon?: VAutocomplete["prependInnerIcon"];
   }>(),
   {
     flag: "svg",
     presentation: "name-first",
-    favorite: () => [],
+    preferred: () => [],
+    excluded: () => [],
+    only: undefined,
     prependInnerIcon: undefined,
   },
 );
@@ -71,19 +75,23 @@ const prependInnerIconFallback = computed(() =>
 
 const itemTitle = computed(() => (props.presentation.startsWith("name") ? "name" : "native"));
 
-const countryList = await getLocalizedCountryDataList("ru");
-countryList.sort((a, b) => {
-  const aidx = props.favorite.indexOf(a.iso2);
-  const bidx = props.favorite.indexOf(b.iso2);
+let countryList = await getLocalizedCountryDataList("ru");
+countryList = countryList
+  .filter((countryData) => {
+    return (!props.excluded.includes(countryData.iso2) && props.only?.includes(countryData.iso2)) ?? true;
+  })
+  .sort((a, b) => {
+    const aidx = props.preferred.indexOf(a.iso2);
+    const bidx = props.preferred.indexOf(b.iso2);
 
-  if (aidx !== -1 && bidx !== -1) {
-    return aidx - bidx; // both items in favorite list
-  } else if (aidx !== -1 || bidx !== -1) {
-    return +(aidx === -1) - +(bidx === -1); // one of the items in favorite list
-  }
+    if (aidx !== -1 && bidx !== -1) {
+      return aidx - bidx; // both items in preferred list
+    } else if (aidx !== -1 || bidx !== -1) {
+      return +(aidx === -1) - +(bidx === -1); // one of the items in preferred list
+    }
 
-  return a[itemTitle.value].localeCompare(b[itemTitle.value]);
-});
+    return a[itemTitle.value].localeCompare(b[itemTitle.value]);
+  });
 
 function getItemTitle(country: ICountry) {
   return props.presentation.startsWith("name") ? country.name : country.native;
