@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ICountry, TCountryCode } from "countries-list";
+import type { ICountry, ICountryData, TCountryCode } from "countries-list";
 import { getEmojiFlag } from "countries-list";
 import { getLocalizedCountryDataList } from "~/utils/getCountryDataList";
 import type { VAutocomplete } from "vuetify/components";
@@ -63,6 +63,8 @@ const props = withDefaults(
   },
 );
 
+const countryList = ref<ICountryData[]>([]);
+
 const prependFlag = computed(() => props.flag === "svg" || props.flag === "emoji");
 
 const prefixEmoji = computed(() =>
@@ -75,24 +77,6 @@ const prependInnerIconFallback = computed(() =>
 
 const itemTitle = computed(() => (props.presentation.startsWith("name") ? "name" : "native"));
 
-let countryList = await getLocalizedCountryDataList("ru");
-countryList = countryList
-  .filter((countryData) => {
-    return (!props.excluded.includes(countryData.iso2) && props.only?.includes(countryData.iso2)) ?? true;
-  })
-  .sort((a, b) => {
-    const aidx = props.preferred.indexOf(a.iso2);
-    const bidx = props.preferred.indexOf(b.iso2);
-
-    if (aidx !== -1 && bidx !== -1) {
-      return aidx - bidx; // both items in preferred list
-    } else if (aidx !== -1 || bidx !== -1) {
-      return +(aidx === -1) - +(bidx === -1); // one of the items in preferred list
-    }
-
-    return a[itemTitle.value].localeCompare(b[itemTitle.value]);
-  });
-
 function getItemTitle(country: ICountry) {
   return props.presentation.startsWith("name") ? country.name : country.native;
 }
@@ -102,6 +86,26 @@ function getItemSubtitle(country: ICountry) {
     return props.presentation.startsWith("name") ? country.native : country.name;
   }
 }
+
+onBeforeMount(async () => {
+  countryList.value = await getLocalizedCountryDataList("ru");
+  countryList.value = countryList.value
+    .filter((countryData) => {
+      return (!props.excluded.includes(countryData.iso2) && props.only?.includes(countryData.iso2)) ?? true;
+    })
+    .sort((a, b) => {
+      const aidx = props.preferred.indexOf(a.iso2);
+      const bidx = props.preferred.indexOf(b.iso2);
+
+      if (aidx !== -1 && bidx !== -1) {
+        return aidx - bidx; // both items in preferred list
+      } else if (aidx !== -1 || bidx !== -1) {
+        return +(aidx === -1) - +(bidx === -1); // one of the items in preferred list
+      }
+
+      return a[itemTitle.value].localeCompare(b[itemTitle.value]);
+    });
+});
 </script>
 
 <style scoped>
