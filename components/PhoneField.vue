@@ -29,7 +29,7 @@ const phone = defineModel<string>();
 const props = withDefaults(
   defineProps<{
     strict?: boolean;
-    country?: CountryCode;
+    country?: TCountryCode;
     flag?: Flag;
     prependInnerIcon?: VTextField["prependInnerIcon"];
   }>(),
@@ -41,14 +41,16 @@ const props = withDefaults(
   },
 );
 
-const maskitoPhoneOptions = maskitoPhoneOptionsGenerator({
-  metadata,
-  strict: props.strict,
-  countryIsoCode: props.country,
-});
+const maskitoPhoneOptions = computed(() =>
+  maskitoPhoneOptionsGenerator({
+    metadata,
+    strict: props.strict,
+    countryIsoCode: props.country as CountryCode | undefined,
+  }),
+);
 
 const numberCountry = computed(() =>
-  phone.value ? (maskitoGetCountryFromNumber(phone.value, metadata) as TCountryCode) : undefined,
+  phone.value ? (maskitoGetCountryFromNumber(phone.value, metadata) as TCountryCode | undefined) : undefined,
 );
 
 const prependFlag = computed(() => props.flag === "svg" || props.flag === "emoji");

@@ -3,7 +3,7 @@
     <v-form class="h-screen flex items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>
-          <v-col cols="2" align="center">
+          <v-col cols="2">
             <v-btn-toggle mandatory divided variant="outlined">
               <v-btn icon="mdi-face-man" value="male" />
               <v-btn icon="mdi-face-woman" value="female" />
@@ -28,11 +28,11 @@
               v-model="fields.citizenship"
               label="Гражданство"
               :favorite="favoriteCountries"
-              prepend-inner-icon="mdi-passport-biometric"
+              prepend-inner-icon="mdi-passport"
             />
           </v-col>
           <v-col>
-            <v-select label="Тип документа" />
+            <v-select label="Тип документа" prepend-inner-icon="mdi-passport-biometric" />
           </v-col>
           <v-col>
             <v-text-field label="Номер документа" />
@@ -42,7 +42,7 @@
           <v-col>
             <PhoneField
               v-model="fields.phone"
-              country="RU"
+              :country="fields.citizenship"
               label="Телефон"
               placeholder="+7 900 123-45-67"
               prepend-inner-icon="mdi-phone"
