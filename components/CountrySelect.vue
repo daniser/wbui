@@ -15,13 +15,14 @@
     </template>
     <template #item="{ props: itemProps, item }">
       <v-list-item
+        class="compact"
         v-bind="itemProps"
         :title="getItemTitle(item.raw)"
         :subtitle="getItemSubtitle(item.raw)"
         :value="item.raw.iso2"
       >
         <template v-if="flag === 'svg'" #prepend>
-          <FlagIcon :country="item.raw.iso2" class="-ml-1 -mr-6" />
+          <FlagIcon :country="item.raw.iso2" class="-ml-1" />
         </template>
         <template v-else-if="flag !== 'none'" #prepend>
           <span v-if="flag === 'emoji'" class="-ml-1 mr-1.5 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
@@ -94,3 +95,9 @@ function getItemSubtitle(country: ICountry) {
   }
 }
 </script>
+
+<style scoped>
+.compact :deep(.v-list-item__prepend .v-list-item__spacer) {
+  width: 6px;
+}
+</style>
