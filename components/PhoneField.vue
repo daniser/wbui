@@ -28,14 +28,16 @@ const phone = defineModel<string>();
 
 const props = withDefaults(
   defineProps<{
-    strict?: boolean;
     country?: TCountryCode;
+    strict?: boolean;
+    separator?: string;
     flag?: Flag;
     prependInnerIcon?: VTextField["prependInnerIcon"];
   }>(),
   {
-    strict: false,
     country: undefined,
+    strict: false,
+    separator: "-",
     flag: "svg",
     prependInnerIcon: undefined,
   },
@@ -44,8 +46,9 @@ const props = withDefaults(
 const maskitoPhoneOptions = computed(() =>
   maskitoPhoneOptionsGenerator({
     metadata,
-    strict: props.strict,
     countryIsoCode: props.country as CountryCode | undefined,
+    strict: props.strict,
+    separator: props.separator,
   }),
 );
 
