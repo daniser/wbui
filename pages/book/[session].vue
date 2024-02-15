@@ -43,9 +43,11 @@
             <PhoneField
               v-model="fields.phone"
               :country="fields.citizenship"
+              :strict="strict"
               label="Телефон"
               placeholder="+7 900 123-45-67"
               prepend-inner-icon="mdi-phone"
+              @keydown.delete="strict = false"
             />
           </v-col>
           <v-col>
@@ -85,6 +87,13 @@ const fields = reactive<{ citizenship?: TCountryCode; phone: string }>({
   citizenship: undefined,
   phone: "",
 });
+
+const strict = ref(false);
+
+watch(
+  () => fields.citizenship,
+  (citizenship) => (strict.value = !!citizenship),
+);
 
 const onSubmit = async () => {
   const { data } = await useFetch<{ session_id: string }>(`${config.public.apiBase}/book`, {
