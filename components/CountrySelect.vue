@@ -97,7 +97,7 @@ function getItemSubtitle(country: ICountry) {
 </script>
 
 <style scoped>
-.compact :deep(.v-list-item__prepend .v-list-item__spacer) {
+.compact :deep(.v-icon + .v-list-item__spacer) {
   width: 6px;
 }
 </style>
