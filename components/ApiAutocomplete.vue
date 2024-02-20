@@ -11,7 +11,9 @@
     auto-select-first
   >
     <template #item="{ props: itemProps, item }">
-      <v-list-item v-bind="itemProps" :title="item.raw.title" :subtitle="item.raw.subtitle" />
+      <v-list-item v-bind="itemProps" :title="item.raw.title" :subtitle="item.raw.subtitle">
+        <template #append>{{ item.raw.value }}</template>
+      </v-list-item>
     </template>
   </v-autocomplete>
 </template>
