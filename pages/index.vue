@@ -3,8 +3,8 @@
     <v-form class="h-screen flex items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>
-          <v-col><v-autocomplete v-model="fields.from" label="From" :items="locations" /></v-col>
-          <v-col><v-autocomplete v-model="fields.to" label="To" :items="locations" /></v-col>
+          <v-col><ApiAutocomplete v-model="fields.from" label="From" source="airports" /></v-col>
+          <v-col><ApiAutocomplete v-model="fields.to" label="To" source="airports" /></v-col>
           <v-col>
             <v-text-field v-model="formattedDate" readonly label="Date">
               <v-overlay
@@ -37,8 +37,6 @@ import { useDate } from "vuetify";
 
 const date = useDate();
 const config = useRuntimeConfig();
-
-const locations = ["MOW", "LED", "KGD"];
 
 const dateTo = ref();
 

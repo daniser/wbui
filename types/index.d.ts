@@ -607,3 +607,11 @@ export interface BookQuery extends Query {
   provider?: string;
   gds?: string;
 }
+
+export interface Prompt {
+  value: string | number;
+  title: string;
+  subtitle?: string;
+  icon?: string;
+  level?: number;
+}
