@@ -48,11 +48,11 @@ export enum MessageSource {
 }
 
 export enum MessageType {
+  Debug = "DEBUG",
   Info = "INFO",
   Notice = "NOTICE",
   Warning = "WARNING",
   Error = "ERROR",
-  Debug = "DEBUG",
   ForUser = "FORUSER",
 }
 
