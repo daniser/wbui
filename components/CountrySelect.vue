@@ -88,7 +88,7 @@ function getItemSubtitle(country: ICountry) {
 }
 
 onBeforeMount(async () => {
-  countryList.value = await getLocalizedCountryDataList("ru");
+  countryList.value = await getLocalizedCountryDataList();
   countryList.value = countryList.value
     .filter((countryData) => {
       return (!props.excluded.includes(countryData.iso2) && props.only?.includes(countryData.iso2)) ?? true;

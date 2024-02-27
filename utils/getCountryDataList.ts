@@ -1,14 +1,23 @@
 import type { ICountryData } from "countries-list";
 import { getCountryDataList } from "countries-list";
 
-export const getLocalizedCountryDataList = async (locale: string = "en"): Promise<ICountryData[]> => {
+export const getLocalizedCountryDataList = async (locale?: string): Promise<ICountryData[]> => {
   const countryDataList = getCountryDataList();
 
-  if (locale !== "en") {
-    const countryNames = await import(`~/data/countries.${locale}.min.json`);
+  if (!locale) {
+    const { locale: currentLocale } = useI18n();
+    locale = currentLocale.value;
+  }
 
-    for (const countryData of countryDataList) {
-      countryData.name = countryNames[countryData.iso2];
+  if (locale !== "en") {
+    try {
+      const countryNames = await import(`~/data/countries.${locale}.min.json`);
+
+      for (const countryData of countryDataList) {
+        countryData.name = countryNames[countryData.iso2];
+      }
+    } catch (e) {
+      console.warn("Error loading localized country names.");
     }
   }
 
