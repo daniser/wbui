@@ -35,7 +35,9 @@
             <v-col>0.02</v-col>
             <v-col>0</v-col>
             <v-col>{{ flightGroup.fares.fareTotal }} ₽</v-col>
-            <v-col><v-btn color="primary" @click.stop="onSelect(flightGroupId)">Select</v-btn></v-col>
+            <v-col>
+              <v-btn color="primary" @click.stop="onSelect(flightGroupId)">{{ $t("select") }}</v-btn>
+            </v-col>
           </v-row>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -69,13 +71,13 @@
                           <div>{{ segment.dateEnd }}</div>
                         </v-col>
                         <v-col>
-                          <div>Класс бронирования</div>
+                          <div>{{ $t("booking_class") }}</div>
                           <div>{{ segment.bookingClass }}</div>
                           <div>{{ segment.serviceClass }} ({{ segment.bookingClass }})</div>
                           <div>{{ segment.baggage.value }}</div>
                         </v-col>
                         <v-col>
-                          <div>Тариф</div>
+                          <div>{{ $t("fare_basis") }}</div>
                           <div>{{ segment.fareBasis }}</div>
                         </v-col>
                       </v-row>

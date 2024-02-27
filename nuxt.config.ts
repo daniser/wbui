@@ -8,6 +8,7 @@ export default defineNuxtConfig({
         lintOnStart: false,
       },
     ],
+    "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
     "vuetify-nuxt-module",
   ],
@@ -20,5 +21,25 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: true,
+  },
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        name: "English (US)",
+        file: "en-US.ts",
+        iso: "en-US",
+      },
+      {
+        code: "ru",
+        name: "Русский (Россия)",
+        file: "ru-RU.ts",
+        iso: "ru-RU",
+      },
+    ],
+    lazy: true,
+    langDir: "lang",
+    strategy: "prefix_and_default",
+    defaultLocale: "ru",
   },
 });

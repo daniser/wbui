@@ -5,5 +5,4 @@ export default defineVuetifyConfiguration({
     locale: "ru",
     fallback: "en",
   },
-  localeMessages: ["ru", "en"],
 });

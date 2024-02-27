@@ -5,38 +5,38 @@
         <v-row>
           <v-col cols="2">
             <v-btn-toggle mandatory divided variant="outlined">
-              <v-btn icon="mdi-face-man" value="male" />
-              <v-btn icon="mdi-face-woman" value="female" />
+              <v-btn icon="mdi-face-man" value="male" :title="$t('male')" />
+              <v-btn icon="mdi-face-woman" value="female" :title="$t('female')" />
             </v-btn-toggle>
           </v-col>
           <v-col>
-            <v-text-field label="Фамилия" placeholder="Иванов" />
+            <v-text-field :label="$t('last_name')" :placeholder="$t('last_name_placeholder')" />
           </v-col>
           <v-col>
-            <v-text-field label="Имя" placeholder="Иван" />
+            <v-text-field :label="$t('first_name')" :placeholder="$t('first_name_placeholder')" />
           </v-col>
           <v-col>
-            <v-text-field label="Отчество" placeholder="Иванович" />
+            <v-text-field :label="$t('middle_name')" :placeholder="$t('middle_name_placeholder')" />
           </v-col>
           <v-col>
-            <v-text-field type="date" label="Дата рождения" />
+            <v-text-field type="date" :label="$t('date_of_birth')" />
           </v-col>
         </v-row>
         <v-row>
           <v-col>
             <CountrySelect
               v-model="fields.citizenship"
-              label="Гражданство"
+              :label="$t('citizenship')"
               :preferred="preferredCountries"
               :excluded="['AQ']"
               prepend-inner-icon="mdi-passport"
             />
           </v-col>
           <v-col>
-            <v-select label="Тип документа" prepend-inner-icon="mdi-passport-biometric" />
+            <v-select :label="$t('document_type')" prepend-inner-icon="mdi-passport-biometric" />
           </v-col>
           <v-col>
-            <v-text-field label="Номер документа" />
+            <v-text-field :label="$t('document_number')" prepend-inner-icon="mdi-pound" />
           </v-col>
         </v-row>
         <v-row>
@@ -45,14 +45,19 @@
               v-model="fields.phone"
               :country="fields.citizenship"
               :strict="strict"
-              label="Телефон"
-              placeholder="+7 900 123-45-67"
+              :label="$t('phone_number')"
+              :placeholder="$t('phone_number_placeholder')"
               prepend-inner-icon="mdi-phone"
               @keydown.delete="strict = false"
             />
           </v-col>
           <v-col>
-            <v-text-field type="email" label="E-mail" placeholder="i.ivanov@mail.ru" prepend-inner-icon="mdi-at" />
+            <v-text-field
+              type="email"
+              :label="$t('email')"
+              :placeholder="$t('email_placeholder')"
+              prepend-inner-icon="mdi-at"
+            />
           </v-col>
           <v-col />
         </v-row>

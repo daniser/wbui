@@ -3,10 +3,10 @@
     <v-form class="h-screen flex items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>
-          <v-col><ApiAutocomplete v-model="fields.from" label="From" source="airports" /></v-col>
-          <v-col><ApiAutocomplete v-model="fields.to" label="To" source="airports" /></v-col>
+          <v-col><ApiAutocomplete v-model="fields.from" :label="$t('from')" source="airports" /></v-col>
+          <v-col><ApiAutocomplete v-model="fields.to" :label="$t('to')" source="airports" /></v-col>
           <v-col>
-            <v-text-field v-model="formattedDate" readonly label="Date">
+            <v-text-field v-model="formattedDate" readonly :label="$t('date')">
               <v-overlay
                 open-on-click
                 activator="parent"
@@ -25,7 +25,9 @@
               </v-overlay>
             </v-text-field>
           </v-col>
-          <v-col><v-btn type="submit" size="x-large" color="primary">Search</v-btn></v-col>
+          <v-col>
+            <v-btn type="submit" size="x-large" color="primary">{{ $t("search") }}</v-btn>
+          </v-col>
         </v-row>
       </v-container>
     </v-form>
