@@ -9,7 +9,8 @@ export default defineI18nLocale(() => ({
   document_number: "Document number",
   document_type: "Document type",
   email: "E-mail",
-  email_placeholder: "john.smith@example.com",
+  email_placeholder: "john.smith{'@'}example.com",
+  excluded_countries: "AQ",
   fare_basis: "Fare basis",
   female: "Female",
   first_name: "First name",
@@ -23,6 +24,8 @@ export default defineI18nLocale(() => ({
   middle_name_placeholder: "Robert",
   phone_number: "Phone number",
   phone_number_placeholder: "+1 234 567-8900",
+  preferred_countries:
+    "US,GB,CA,AU,NZ,AT,HR,CY,CZ,BE,BG,DK,EE,FI,FR,DE,GR,HU,IE,IT,JP,KR,LV,LT,LU,MT,NL,NO,PL,PT,RO,SK,SI,ES,SE,CH",
   search: "Search",
   select: "Select",
   to: "To",

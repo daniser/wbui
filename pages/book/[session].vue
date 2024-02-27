@@ -28,7 +28,7 @@
               v-model="fields.citizenship"
               :label="$t('citizenship')"
               :preferred="preferredCountries"
-              :excluded="['AQ']"
+              :excluded="excludedCountries"
               prepend-inner-icon="mdi-passport"
             />
           </v-col>
@@ -69,25 +69,17 @@
 <script setup lang="ts">
 import type { TCountryCode } from "countries-list";
 
+const { t } = useI18n();
+
 const config = useRuntimeConfig();
 
-const preferredCountries: TCountryCode[] = [
-  "RU",
-  "AZ",
-  "AM",
-  "BY",
-  "GE",
-  "KZ",
-  "KG",
-  "LV",
-  "LT",
-  "MD",
-  "TJ",
-  "TM",
-  "UZ",
-  "UA",
-  "EE",
-];
+const preferredCountries = t("preferred_countries")
+  .split(",")
+  .filter((x) => x) as TCountryCode[];
+
+const excludedCountries: TCountryCode[] = t("excluded_countries")
+  .split(",")
+  .filter((x) => x) as TCountryCode[];
 
 const fields = reactive<{ citizenship?: TCountryCode; phone: string }>({
   citizenship: undefined,
