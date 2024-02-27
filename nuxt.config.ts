@@ -36,6 +36,12 @@ export default defineNuxtConfig({
         file: "ru-RU.ts",
         iso: "ru-RU",
       },
+      {
+        code: "uk",
+        name: "Українська (Україна)",
+        file: "uk-UA.ts",
+        iso: "uk-UA",
+      },
     ],
     lazy: true,
     langDir: "lang",
