@@ -229,9 +229,7 @@ export interface CorporateID {
 export interface Customer {
   name: string;
   email: string;
-  countryCode: string;
-  areaCode: string;
-  phoneNumber: string;
+  phone: string;
 }
 
 export interface DateAndTime {
@@ -348,10 +346,7 @@ export interface Passenger {
   passport: Passport;
   loyaltyCard: LoyaltyCard;
   type: PassengerType;
-  phoneType: PhoneType;
-  phoneNumber: string;
-  countryCode: string;
-  areaCode: string;
+  phone: string;
   tariff?: string;
   railwayBonusCardNumber: string;
   email?: string;
