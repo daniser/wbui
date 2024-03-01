@@ -347,8 +347,6 @@ export interface Passenger {
   loyaltyCard: LoyaltyCard;
   type: PassengerType;
   phone: string;
-  tariff?: string;
-  railwayBonusCardNumber: string;
   email?: string;
   isEmailRefused: boolean;
   isEmailAbsent: boolean;
