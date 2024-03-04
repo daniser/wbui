@@ -10,10 +10,16 @@ export default defineNuxtConfig({
     ],
     "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
+    "@sidebase/nuxt-auth",
     "vuetify-nuxt-module",
   ],
   runtimeConfig: {
     apiSecret: "",
+    passport: {
+      baseUrl: "",
+      clientId: "",
+      clientSecret: "",
+    },
     public: {
       apiBase: "",
     },
@@ -21,6 +27,11 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: true,
+  },
+  auth: {
+    provider: {
+      type: "authjs",
+    },
   },
   i18n: {
     locales: [
