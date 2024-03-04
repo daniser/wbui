@@ -1,4 +1,5 @@
 <template>
+  <NuxtLoadingIndicator />
   <NuxtLayout>
     <v-app>
       <v-app-bar color="primary" density="compact">
