@@ -1,7 +1,8 @@
 import { NuxtAuthHandler } from "#auth";
-const { passport } = useRuntimeConfig();
+const { authSecret, passport } = useRuntimeConfig();
 
 export default NuxtAuthHandler({
+  secret: authSecret,
   providers: [
     {
       id: "laravelpassport",
