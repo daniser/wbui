@@ -4,6 +4,7 @@ export default defineI18nLocale(() => ({
   $vuetify: en,
   booking_class: "Booking class",
   citizenship: "Citizenship",
+  dark: "Dark",
   date: "Date",
   date_of_birth: "Date of birth",
   document_number: "Document number",
@@ -22,6 +23,7 @@ export default defineI18nLocale(() => ({
   last_name: "Last name",
   last_name_placeholder: "Smith",
   last_name_placeholder_female: "Smith",
+  light: "Light",
   male: "Male",
   middle_name: "Middle name",
   middle_name_placeholder: "Michael",
@@ -32,5 +34,6 @@ export default defineI18nLocale(() => ({
     "US,GB,CA,AU,NZ,AT,HR,CY,CZ,BE,BG,DK,EE,FI,FR,DE,GR,HU,IE,IT,JP,KR,LV,LT,LU,MT,NL,NO,PL,PT,RO,SK,SI,ES,SE,CH",
   search: "Search",
   select: "Select",
+  system: "System",
   to: "To",
 }));

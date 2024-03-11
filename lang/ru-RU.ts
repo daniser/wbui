@@ -4,6 +4,7 @@ export default defineI18nLocale(() => ({
   $vuetify: ru,
   booking_class: "Класс бронирования",
   citizenship: "Гражданство",
+  dark: "Тёмная",
   date: "Дата",
   date_of_birth: "Дата рождения",
   document_number: "Номер документа",
@@ -22,6 +23,7 @@ export default defineI18nLocale(() => ({
   last_name: "Фамилия",
   last_name_placeholder: "Иванов",
   last_name_placeholder_female: "Иванова",
+  light: "Светлая",
   male: "Мужской",
   middle_name: "Отчество",
   middle_name_placeholder: "Иванович",
@@ -31,5 +33,6 @@ export default defineI18nLocale(() => ({
   preferred_countries: "RU,AZ,AM,BY,GE,KZ,KG,LV,LT,MD,TJ,TM,UZ,UA,EE",
   search: "Найти",
   select: "Выбрать",
+  system: "Системная",
   to: "Куда",
 }));

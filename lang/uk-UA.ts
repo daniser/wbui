@@ -4,6 +4,7 @@ export default defineI18nLocale(() => ({
   $vuetify: uk,
   booking_class: "Клас бронювання",
   citizenship: "Громадянство",
+  dark: "Темна",
   date: "Дата",
   date_of_birth: "Дата народження",
   document_number: "Номер документа",
@@ -22,6 +23,7 @@ export default defineI18nLocale(() => ({
   last_name: "Прізвище",
   last_name_placeholder: "Пасюк",
   last_name_placeholder_female: "Пасюк",
+  light: "Світла",
   male: "Чоловіча",
   middle_name: "По батькові",
   middle_name_placeholder: "Богданович",
@@ -31,5 +33,6 @@ export default defineI18nLocale(() => ({
   preferred_countries: "UA,AZ,BY,AM,GE,EE,KZ,KG,LV,LT,MD,RU,TJ,TM,UZ",
   search: "Знайти",
   select: "Вибрати",
+  system: "Системна",
   to: "Куди",
 }));

@@ -11,6 +11,7 @@ export default defineNuxtConfig({
         lintOnStart: false,
       },
     ],
+    "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
     "@sidebase/nuxt-auth",
@@ -35,6 +36,11 @@ export default defineNuxtConfig({
     provider: {
       type: "authjs",
     },
+  },
+  colorMode: {
+    preference: "system",
+    fallback: "light",
+    classSuffix: "",
   },
   i18n: {
     locales: [
