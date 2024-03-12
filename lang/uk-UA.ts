@@ -34,6 +34,7 @@ export default defineI18nLocale(() => ({
   preferred_countries: "UA,AZ,BY,AM,GE,EE,KZ,KG,LV,LT,MD,RU,TJ,TM,UZ",
   search: "Знайти",
   select: "Вибрати",
+  sign_in: "Увійти",
   system: "Системна",
   to: "Куди",
 }));

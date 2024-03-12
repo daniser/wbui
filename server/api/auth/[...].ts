@@ -3,6 +3,9 @@ const { authSecret, passport } = useRuntimeConfig();
 
 export default NuxtAuthHandler({
   secret: authSecret,
+  pages: {
+    signIn: "/login",
+  },
   providers: [
     {
       id: "laravelpassport",

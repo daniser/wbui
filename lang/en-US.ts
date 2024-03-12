@@ -35,6 +35,7 @@ export default defineI18nLocale(() => ({
     "US,GB,CA,AU,NZ,AT,HR,CY,CZ,BE,BG,DK,EE,FI,FR,DE,GR,HU,IE,IT,JP,KR,LV,LT,LU,MT,NL,NO,PL,PT,RO,SK,SI,ES,SE,CH",
   search: "Search",
   select: "Select",
+  sign_in: "Sign In",
   system: "System",
   to: "To",
 }));

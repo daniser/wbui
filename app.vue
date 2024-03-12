@@ -13,6 +13,7 @@
             <v-btn icon="mdi-weather-night" value="dark" :title="$t('dark')" />
           </v-btn-toggle>
           <LanguageMenu />
+          <v-btn to="/login">{{ $t("sign_in") }}</v-btn>
         </template>
       </v-app-bar>
       <NuxtPage />
