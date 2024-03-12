@@ -20,6 +20,7 @@ export default defineI18nLocale(() => ({
   first_name_placeholder_female: "Оксана",
   from: "Звідки",
   gender: "Стать",
+  language: "Мова",
   last_name: "Прізвище",
   last_name_placeholder: "Пасюк",
   last_name_placeholder_female: "Пасюк",

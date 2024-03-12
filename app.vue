@@ -12,9 +12,7 @@
             <v-btn icon="mdi-weather-sunny" value="light" :title="$t('light')" />
             <v-btn icon="mdi-weather-night" value="dark" :title="$t('dark')" />
           </v-btn-toggle>
-          <v-btn v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
-            {{ locale.name }}
-          </v-btn>
+          <LanguageMenu />
         </template>
       </v-app-bar>
       <NuxtPage />
@@ -23,14 +21,8 @@
 </template>
 
 <script setup lang="ts">
-const { locale: currentLocale, locales } = useI18n();
-const switchLocalePath = useSwitchLocalePath();
 const colorMode = useColorMode();
 const theme = useTheme();
-
-const availableLocales = computed(() => {
-  return locales.value.filter((i) => i.code !== currentLocale.value);
-});
 
 watch(
   () => colorMode.value,
