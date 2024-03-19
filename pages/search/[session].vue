@@ -1,5 +1,8 @@
 <template>
   <v-main v-if="result">
+    <Head>
+      <Title>{{ $t("select_flight") }}</Title>
+    </Head>
     <div v-for="(message, index) in result.messages" :key="index">{{ message.message }}</div>
     <v-expansion-panels variant="accordion" multiple>
       <v-expansion-panel v-for="(flightGroup, flightGroupId) in result.flightGroups" :key="flightGroup.token">

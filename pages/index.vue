@@ -1,5 +1,8 @@
 <template>
   <v-main>
+    <Head>
+      <Title>{{ $t("search_flights") }}</Title>
+    </Head>
     <v-form class="h-screen flex items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>

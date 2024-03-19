@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>{{ $t("tagline") }}</Title>
+  </Head>
   <NuxtLoadingIndicator />
   <NuxtLayout>
     <v-app>

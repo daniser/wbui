@@ -2,6 +2,7 @@ import { ru } from "vuetify/locale";
 
 export default defineI18nLocale(() => ({
   $vuetify: ru,
+  book_flight: "Бронирование авиабилетов",
   booking_class: "Класс бронирования",
   citizenship: "Гражданство",
   dark: "Тёмная",
@@ -33,8 +34,11 @@ export default defineI18nLocale(() => ({
   phone_number_placeholder: "+7 900 123-45-67",
   preferred_countries: "RU,AZ,AM,BY,GE,KZ,KG,LV,LT,MD,TJ,TM,UZ,UA,EE",
   search: "Найти",
+  search_flights: "Поиск рейсов",
   select: "Выбрать",
+  select_flight: "Выбор рейса",
   sign_in: "Войти",
   system: "Системная",
+  tagline: "Ваш персональный поставщик авиабилетов",
   to: "Куда",
 }));

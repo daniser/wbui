@@ -2,6 +2,7 @@ import { en } from "vuetify/locale";
 
 export default defineI18nLocale(() => ({
   $vuetify: en,
+  book_flight: "Book flight",
   booking_class: "Booking class",
   citizenship: "Citizenship",
   dark: "Dark",
@@ -34,8 +35,11 @@ export default defineI18nLocale(() => ({
   preferred_countries:
     "US,GB,CA,AU,NZ,AT,HR,CY,CZ,BE,BG,DK,EE,FI,FR,DE,GR,HU,IE,IT,JP,KR,LV,LT,LU,MT,NL,NO,PL,PT,RO,SK,SI,ES,SE,CH",
   search: "Search",
+  search_flights: "Search flights",
   select: "Select",
+  select_flight: "Select flight",
   sign_in: "Sign In",
   system: "System",
+  tagline: "Your personal ticket provider",
   to: "To",
 }));

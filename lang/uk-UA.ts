@@ -2,6 +2,7 @@ import { uk } from "vuetify/locale";
 
 export default defineI18nLocale(() => ({
   $vuetify: uk,
+  book_flight: "Бронювання авіаквитків",
   booking_class: "Клас бронювання",
   citizenship: "Громадянство",
   dark: "Темна",
@@ -33,8 +34,11 @@ export default defineI18nLocale(() => ({
   phone_number_placeholder: "+380 67 890-1234",
   preferred_countries: "UA,AZ,BY,AM,GE,EE,KZ,KG,LV,LT,MD,RU,TJ,TM,UZ",
   search: "Знайти",
+  search_flights: "Пошук рейсів",
   select: "Вибрати",
+  select_flight: "Вибір рейсу",
   sign_in: "Увійти",
   system: "Системна",
+  tagline: "Ваш персональний постачальник авіаквитків",
   to: "Куди",
 }));

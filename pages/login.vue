@@ -1,5 +1,8 @@
 <template>
   <v-main>
+    <Head>
+      <Title>{{ $t("sign_in") }}</Title>
+    </Head>
     <div class="flex h-screen">
       <div v-if="providers" class="m-auto">
         <p>Sign-In Options:</p>
