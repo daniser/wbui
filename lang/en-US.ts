@@ -2,6 +2,7 @@ import { en } from "vuetify/locale";
 
 export default defineI18nLocale(() => ({
   $vuetify: en,
+  account: "Account",
   book_flight: "Book flight",
   booking_class: "Booking class",
   citizenship: "Citizenship",
@@ -39,6 +40,7 @@ export default defineI18nLocale(() => ({
   select: "Select",
   select_flight: "Select flight",
   sign_in: "Sign In",
+  sign_out: "Sign Out",
   system: "System",
   tagline: "Your personal ticket provider",
   to: "To",

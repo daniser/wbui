@@ -24,6 +24,10 @@ export default defineNuxtConfig({
       clientId: process.env.PASSPORT_CLIENT_ID,
       clientSecret: process.env.PASSPORT_CLIENT_SECRET,
     },
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    },
     public: {
       apiBase: "",
     },

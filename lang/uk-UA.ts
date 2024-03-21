@@ -2,6 +2,7 @@ import { uk } from "vuetify/locale";
 
 export default defineI18nLocale(() => ({
   $vuetify: uk,
+  account: "Особистий кабінет",
   book_flight: "Бронювання авіаквитків",
   booking_class: "Клас бронювання",
   citizenship: "Громадянство",
@@ -38,6 +39,7 @@ export default defineI18nLocale(() => ({
   select: "Вибрати",
   select_flight: "Вибір рейсу",
   sign_in: "Увійти",
+  sign_out: "Вийти",
   system: "Системна",
   tagline: "Ваш персональний постачальник авіаквитків",
   to: "Куди",

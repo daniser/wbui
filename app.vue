@@ -15,8 +15,8 @@
             <v-btn icon="mdi-weather-sunny" value="light" :title="$t('light')" />
             <v-btn icon="mdi-weather-night" value="dark" :title="$t('dark')" />
           </v-btn-toggle>
-          <LanguageMenu />
-          <v-btn to="/login">{{ $t("sign_in") }}</v-btn>
+          <LanguageMenu open-on-hover />
+          <PersonalMenu open-on-hover />
         </template>
       </v-app-bar>
       <NuxtPage />

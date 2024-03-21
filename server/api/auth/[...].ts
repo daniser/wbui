@@ -1,5 +1,6 @@
+import GithubProvider from "next-auth/providers/github";
 import { NuxtAuthHandler } from "#auth";
-const { authSecret, passport } = useRuntimeConfig();
+const { authSecret, passport, github } = useRuntimeConfig();
 
 export default NuxtAuthHandler({
   secret: authSecret,
@@ -33,5 +34,10 @@ export default NuxtAuthHandler({
       }),
       idToken: false,
     },
+    // @ts-expect-error
+    GithubProvider.default({
+      clientId: github.clientId,
+      clientSecret: github.clientSecret,
+    }),
   ],
 });
