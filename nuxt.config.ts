@@ -18,11 +18,17 @@ export default defineNuxtConfig({
     "vuetify-nuxt-module",
   ],
   runtimeConfig: {
-    authSecret: process.env.AUTH_SECRET,
-    passport: {
-      baseUrl: process.env.PASSPORT_BASE_URL,
-      clientId: process.env.PASSPORT_CLIENT_ID,
-      clientSecret: process.env.PASSPORT_CLIENT_SECRET,
+    auth: {
+      secret: process.env.AUTH_SECRET,
+      baseUrl: process.env.AUTH_BASE_URL,
+    },
+    user: {
+      clientId: process.env.USER_CLIENT_ID,
+      clientSecret: process.env.USER_CLIENT_SECRET,
+    },
+    customer: {
+      clientId: process.env.CUSTOMER_CLIENT_ID,
+      clientSecret: process.env.CUSTOMER_CLIENT_SECRET,
     },
     github: {
       clientId: process.env.GITHUB_CLIENT_ID,

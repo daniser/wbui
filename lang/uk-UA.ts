@@ -31,6 +31,7 @@ export default defineI18nLocale(() => ({
   middle_name: "По батькові",
   middle_name_placeholder: "Богданович",
   middle_name_placeholder_female: "Богданівна",
+  password: "Пароль",
   phone_number: "Телефон",
   phone_number_placeholder: "+380 67 890-1234",
   preferred_countries: "UA,AZ,BY,AM,GE,EE,KZ,KG,LV,LT,MD,RU,TJ,TM,UZ",
