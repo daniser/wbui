@@ -37,3 +37,8 @@ interface UserResponse {
   name: string;
   email: string;
 }
+
+interface AccountResponse {
+  id: number;
+  name: string;
+}

@@ -1,4 +1,4 @@
-import type { TokenResponse, UserResponse } from "~/types/auth";
+import type { TokenResponse, UserResponse, AccountResponse } from "~/types/auth";
 
 export const useSessionStore = defineStore("session", () => {
   const config = useRuntimeConfig();
@@ -7,7 +7,6 @@ export const useSessionStore = defineStore("session", () => {
     method: "GET",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json",
     },
     default() {
       return {
@@ -28,7 +27,6 @@ export const useSessionStore = defineStore("session", () => {
     method: "GET",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json",
       Authorization: authHeader.value,
     },
     default() {
@@ -40,7 +38,22 @@ export const useSessionStore = defineStore("session", () => {
     },
   });
 
-  return { token, authHeader, user };
+  const { data: account } = useFetch<AccountResponse>(`${config.public.apiBase}/account`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: authHeader.value,
+    },
+    default() {
+      return {
+        id: 0,
+        name: "Account",
+        email: "account@example.com",
+      } as AccountResponse;
+    },
+  });
+
+  return { token, authHeader, user, account };
 });
 
 if (import.meta.hot) {

@@ -20,7 +20,7 @@
         </template>
       </v-app-bar>
       <NuxtPage />
-      <v-footer>{{ session.user.name || "..." }}</v-footer>
+      <v-footer>{{ session.account.name || "..." }}</v-footer>
     </v-app>
   </NuxtLayout>
 </template>
