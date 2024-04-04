@@ -45,3 +45,7 @@ export const useSessionStore = defineStore("session", () => {
 
   return { token, authHeader, user };
 });
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useSessionStore, import.meta.hot));
+}
