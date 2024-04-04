@@ -69,8 +69,6 @@ import type { Gender } from "~/types";
 
 const { t } = useI18n();
 
-const config = useRuntimeConfig();
-
 const lastNamePlaceholder = computed(() =>
   fields.gender !== "FEMALE" ? t("last_name_placeholder") : t("last_name_placeholder_female"),
 );
@@ -109,7 +107,7 @@ watch(
 );
 
 const onSubmit = async () => {
-  const { data } = await useFetch<{ session_id: string }>(`${config.public.apiBase}/book`, {
+  const { data } = await useApi<{ session_id: string }>("book", {
     method: "post",
     body: new URLSearchParams(fields),
   });

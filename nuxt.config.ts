@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
     "@sidebase/nuxt-auth",
     "vuetify-nuxt-module",
   ],

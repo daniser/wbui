@@ -20,6 +20,7 @@
         </template>
       </v-app-bar>
       <NuxtPage />
+      <v-footer>{{ session.user.name || "..." }}</v-footer>
     </v-app>
   </NuxtLayout>
 </template>
@@ -27,6 +28,7 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
 const theme = useTheme();
+const session = useSessionStore();
 
 watch(
   () => colorMode.value,

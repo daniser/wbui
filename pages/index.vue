@@ -41,7 +41,6 @@
 import { useDate } from "vuetify";
 
 const date = useDate();
-const config = useRuntimeConfig();
 
 const dateTo = ref();
 
@@ -54,7 +53,7 @@ const fields = reactive({
 });
 
 const onSubmit = async () => {
-  const { data } = await useFetch<{ session_id: string }>(`${config.public.apiBase}/search`, {
+  const { data } = await useApi<{ session_id: string }>("search", {
     method: "post",
     body: new URLSearchParams(fields),
   });

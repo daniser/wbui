@@ -99,14 +99,13 @@
 <script setup lang="ts">
 import type { SearchResult } from "~/types";
 
-const config = useRuntimeConfig();
 const route = useRoute();
 
-const { data } = await useFetch<SearchResult>(`${config.public.apiBase}/search/${route.params.session}`);
+const { data } = await useApi<SearchResult>(`search/${route.params.session}`);
 const result = computed<SearchResult | null>(() => data.value);
 
 const onSelect = async (fligntGroupId: number) => {
-  await useFetch(`${config.public.apiBase}/select/${route.params.session}`, {
+  await useApi(`select/${route.params.session}`, {
     method: "post",
     body: new URLSearchParams({ flightGroupId: fligntGroupId.toString() }),
   });

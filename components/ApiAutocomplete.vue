@@ -28,11 +28,11 @@ const model = defineModel<string>();
 
 const props = defineProps<{ source: string }>();
 
-const config = useRuntimeConfig();
-
 const items = ref<Prompt[]>([]);
 
+const { $api } = useNuxtApp();
+
 const onSearch = async (search: string) => {
-  items.value = search.length < 2 ? [] : await $fetch(`${config.public.apiBase}/${props.source}/${search}`);
+  items.value = search.length < 2 ? [] : await $api(`${props.source}/${search}`);
 };
 </script>
