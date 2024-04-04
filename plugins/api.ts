@@ -11,7 +11,6 @@ export default defineNuxtPlugin(({ $pinia }) => {
       options.headers = {
         ...(options.headers || {}),
         Accept: "application/json",
-        "Content-Type": "application/json",
         Authorization: session.authHeader,
       };
     },
