@@ -10,6 +10,8 @@ export default defineNuxtPlugin(({ $pinia }) => {
     async onRequest({ options }) {
       options.headers = {
         ...(options.headers || {}),
+        Accept: "application/json",
+        "Content-Type": "application/json",
         Authorization: session.authHeader,
       };
     },

@@ -33,6 +33,6 @@ const items = ref<Prompt[]>([]);
 const { $api } = useNuxtApp();
 
 const onSearch = async (search: string) => {
-  items.value = search.length < 2 ? [] : await $api(`${props.source}/${search}`);
+  items.value = search.length < 2 ? [] : await $api(`booking/${props.source}/${search}`);
 };
 </script>

@@ -107,7 +107,7 @@ watch(
 );
 
 const onSubmit = async () => {
-  const { data } = await useApi<{ session_id: string }>("book", {
+  const { data } = await useApi<{ session_id: string }>("booking/book", {
     method: "post",
     body: new URLSearchParams(fields),
   });

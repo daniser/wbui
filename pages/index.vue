@@ -53,7 +53,7 @@ const fields = reactive({
 });
 
 const onSubmit = async () => {
-  const { data } = await useApi<{ session_id: string }>("search", {
+  const { data } = await useApi<{ session_id: string }>("booking/search", {
     method: "post",
     body: new URLSearchParams(fields),
   });

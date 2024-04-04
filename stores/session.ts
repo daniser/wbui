@@ -3,15 +3,11 @@ import type { TokenResponse, UserResponse } from "~/types/auth";
 export const useSessionStore = defineStore("session", () => {
   const config = useRuntimeConfig();
 
-  const { data: token } = useFetch<TokenResponse>(`${config.auth.baseUrl}/oauth/token`, {
-    method: "POST",
+  const { data: token } = useFetch<TokenResponse>("/api/apptoken", {
+    method: "GET",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
-    },
-    body: {
-      grant_type: "client_credentials",
-      client_id: config.user.clientId,
-      client_secret: config.user.clientSecret,
     },
     default() {
       return {
@@ -28,9 +24,10 @@ export const useSessionStore = defineStore("session", () => {
 
   const authHeader = computed(() => `${token.value.token_type} ${token.value.access_token}`);
 
-  const { data: user } = useFetch<UserResponse>(`${config.auth.baseUrl}/api/user`, {
+  const { data: user } = useFetch<UserResponse>(`${config.public.apiBase}/user`, {
     method: "GET",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: authHeader.value,
     },

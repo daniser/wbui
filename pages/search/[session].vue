@@ -101,11 +101,11 @@ import type { SearchResult } from "~/types";
 
 const route = useRoute();
 
-const { data } = await useApi<SearchResult>(`search/${route.params.session}`);
+const { data } = await useApi<SearchResult>(`booking/search/${route.params.session}`);
 const result = computed<SearchResult | null>(() => data.value);
 
 const onSelect = async (fligntGroupId: number) => {
-  await useApi(`select/${route.params.session}`, {
+  await useApi(`booking/select/${route.params.session}`, {
     method: "post",
     body: new URLSearchParams({ flightGroupId: fligntGroupId.toString() }),
   });
