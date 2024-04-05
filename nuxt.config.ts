@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/eslint-module",
+    "@nuxt/eslint",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
@@ -52,9 +52,6 @@ export default defineNuxtConfig({
     preference: "system",
     fallback: "light",
     classSuffix: "",
-  },
-  eslint: {
-    lintOnStart: false,
   },
   i18n: {
     locales: [
