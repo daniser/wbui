@@ -20,7 +20,7 @@
         </template>
       </v-app-bar>
       <NuxtPage />
-      <v-footer>{{ session.account.name || "..." }}</v-footer>
+      <v-footer color="primary" class="justify-center">{{ new Date().getFullYear() }} © {{ $account?.name }}</v-footer>
     </v-app>
   </NuxtLayout>
 </template>
@@ -28,7 +28,6 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
 const theme = useTheme();
-const session = useSessionStore();
 
 watch(
   () => colorMode.value,

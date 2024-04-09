@@ -1,9 +1,8 @@
-import type { Pinia } from "pinia";
+import type { TokenResponse } from "~/types/auth";
 
-export default defineNuxtPlugin(({ $pinia }) => {
+export default defineNuxtPlugin(({ $token }) => {
   const config = useRuntimeConfig();
-
-  const session = useSessionStore($pinia as Pinia);
+  const token = $token as TokenResponse;
 
   const api = $fetch.create({
     baseURL: config.public.apiBase as string,
@@ -11,7 +10,7 @@ export default defineNuxtPlugin(({ $pinia }) => {
       options.headers = {
         ...(options.headers || {}),
         Accept: "application/json",
-        Authorization: session.authHeader,
+        Authorization: `${token.token_type} ${token.access_token}`,
       };
     },
   });
