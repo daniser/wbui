@@ -3,72 +3,15 @@ import GithubProvider from "next-auth/providers/github";
 import { NuxtAuthHandler } from "#auth";
 import type { Credentials, TokenResponse, UserResponse } from "~/types/auth";
 
-const { auth, user, customer, github } = useRuntimeConfig();
+const config = useRuntimeConfig();
 
 export default NuxtAuthHandler({
-  secret: auth.secret,
+  secret: config.auth.secret,
   pages: {
     signIn: "/login",
     //error: "/",
   },
   providers: [
-    /*{
-      id: "laravelpassport",
-      name: "Passport",
-      type: "oauth",
-      version: "2.0",
-      authorization: {
-        url: `${auth.baseUrl}/oauth/authorize`,
-        params: {
-          scope: "*",
-        },
-      },
-      token: {
-        url: `${auth.baseUrl}/oauth/token`,
-      },
-      clientId: customer.clientId,
-      clientSecret: customer.clientSecret,
-      userinfo: {
-        url: `${auth.baseUrl}/api/customer`,
-      },
-      profile: (profile: any) => ({
-        id: profile.id,
-        name: profile.name,
-        email: profile.email,
-      }),
-      idToken: false,
-    },*/
-    // @ts-expect-error
-    CredentialsProvider.default({
-      id: "client_credentials",
-      name: "Client Credentials",
-      credentials: {},
-      async authorize(credentials: any) {
-        const token = await $fetch<TokenResponse>(`${auth.baseUrl}/oauth/token`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: {
-            grant_type: "client_credentials",
-            client_id: user.clientId,
-            client_secret: user.clientSecret,
-            ...credentials,
-          },
-          async onResponseError({ response }) {
-            throw new Error(response._data.message);
-          },
-        });
-
-        return await $fetch<UserResponse>(`${auth.baseUrl}/api/user`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `${token.token_type} ${token.access_token}`,
-          },
-        });
-      },
-    }),
     // @ts-expect-error
     CredentialsProvider.default({
       name: "Credentials",
@@ -77,15 +20,19 @@ export default NuxtAuthHandler({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: Credentials) {
-        const token = await $fetch<TokenResponse>(`${auth.baseUrl}/oauth/token`, {
+        const userToken = await useStorage("session").getItem<TokenResponse>("token");
+
+        const customerToken = await $fetch<TokenResponse>(`${config.public.apiBase}/customer/token`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `${userToken!.token_type} ${userToken!.access_token}`,
           },
           body: {
             grant_type: "password",
-            client_id: customer.clientId,
-            client_secret: customer.clientSecret,
+            client_id: config.customer.clientId,
+            client_secret: config.customer.clientSecret,
             ...credentials,
           },
           async onResponseError({ response }) {
@@ -93,19 +40,19 @@ export default NuxtAuthHandler({
           },
         });
 
-        return await $fetch<UserResponse>(`${auth.baseUrl}/api/customer`, {
+        return await $fetch<UserResponse>(`${config.public.apiBase}/customer`, {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            Authorization: `${token.token_type} ${token.access_token}`,
+            Accept: "application/json",
+            Authorization: `${customerToken.token_type} ${customerToken.access_token}`,
           },
         });
       },
     }),
     // @ts-expect-error
     GithubProvider.default({
-      clientId: github.clientId,
-      clientSecret: github.clientSecret,
+      clientId: config.github.clientId,
+      clientSecret: config.github.clientSecret,
     }),
   ],
 });

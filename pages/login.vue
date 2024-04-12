@@ -7,7 +7,7 @@
       <v-container v-if="providers" class="m-auto">
         <p>Sign-In Options:</p>
         <v-row v-for="(provider, id) in providers" :key="id">
-          <template v-if="!provider || provider.id === 'client_credentials'">Unknown provider</template>
+          <template v-if="!provider">Unknown provider</template>
           <v-col v-else-if="provider.type === 'credentials'">
             <v-text-field
               v-model="credentials.username"
