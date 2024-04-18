@@ -16,10 +16,10 @@
               :placeholder="$t('email_placeholder')"
             />
             <v-text-field v-model="credentials.password" type="password" :label="$t('password')" />
-            <v-btn @click="signIn(provider.id, credentials)">{{ provider.name }}</v-btn>
+            <v-btn @click="signIn(provider.id, { ...credentials, callbackUrl: '/' })">{{ provider.name }}</v-btn>
           </v-col>
           <v-col v-else>
-            <v-btn @click="signIn(provider.id)">{{ provider.name }}</v-btn>
+            <v-btn @click="signIn(provider.id, { callbackUrl: '/' })">{{ provider.name }}</v-btn>
           </v-col>
         </v-row>
       </v-container>
