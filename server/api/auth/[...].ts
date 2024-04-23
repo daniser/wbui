@@ -12,6 +12,32 @@ export default NuxtAuthHandler({
     //error: "/",
   },
   providers: [
+    /*{
+      id: "laravelpassport",
+      name: "Passport",
+      type: "oauth",
+      version: "2.0",
+      authorization: {
+        url: `${config.auth.baseUrl}/oauth/authorize`,
+        params: {
+          scope: "*",
+        },
+      },
+      token: {
+        url: `${config.public.apiBase}/customer/token`,
+      },
+      clientId: config.customer.clientId,
+      clientSecret: config.customer.clientSecret,
+      userinfo: {
+        url: `${config.public.apiBase}/customer`,
+      },
+      profile: (profile) => ({
+        id: profile.id,
+        name: profile.name,
+        email: profile.email,
+      }),
+      idToken: false,
+    },*/
     // @ts-expect-error
     CredentialsProvider.default({
       name: "Credentials",
@@ -40,13 +66,15 @@ export default NuxtAuthHandler({
           },
         });
 
-        return await $fetch<UserResponse>(`${config.public.apiBase}/customer`, {
+        const customerData = await $fetch<UserResponse>(`${config.public.apiBase}/customer`, {
           method: "GET",
           headers: {
             Accept: "application/json",
             Authorization: `${customerToken.token_type} ${customerToken.access_token}`,
           },
         });
+
+        return { ...customerData, customerToken };
       },
     }),
     // @ts-expect-error
@@ -55,4 +83,13 @@ export default NuxtAuthHandler({
       clientSecret: config.github.clientSecret,
     }),
   ],
+  callbacks: {
+    async jwt({ token, user, account }) {
+      if (account?.type === "credentials") {
+        token.customerToken = user.customerToken;
+      }
+
+      return token;
+    },
+  },
 });
