@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     },
   },
   build: {
-    transpile: ["vue-debounce"],
+    transpile: ["pinia-orm", "vue-debounce"],
   },
   devtools: { enabled: true },
   modules: [
@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
+    "@pinia-orm/nuxt",
     "@sidebase/nuxt-auth",
     "vuetify-nuxt-module",
   ],
@@ -42,6 +43,20 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: true,
+    tsConfig: {
+      compilerOptions: {
+        experimentalDecorators: true,
+      },
+    },
+  },
+  vite: {
+    esbuild: {
+      tsconfigRaw: {
+        compilerOptions: {
+          experimentalDecorators: true,
+        },
+      },
+    },
   },
   auth: {
     provider: {
