@@ -6,6 +6,6 @@ export default class PersonRepository extends Repository<Person> {
   use = Person;
 
   fetch = async () => {
-    return this.save(await useNuxtApp().$capi<TPerson[]>("persons"));
+    return this.insert(await useNuxtApp().$capi<TPerson[]>("persons"));
   };
 }

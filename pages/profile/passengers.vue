@@ -1,19 +1,11 @@
 <template>
   <v-main>
-    <v-list v-for="person in personRepo.all()" :key="person.id" class="mx-2">
-      <v-card variant="tonal">
-        <v-card-text>
-          <v-form>
-            <v-text-field v-model="person.name" variant="underlined" size="x-small" />
-          </v-form>
-        </v-card-text>
-        <v-card-actions>
-          <v-btn>Save</v-btn>
-          <v-btn>ADD</v-btn>
-        </v-card-actions>
-      </v-card>
+    <v-list>
+      <v-list-item v-for="(person, i) in persons" :key="person.id" class="mx-2">
+        <Person v-model="persons[i]" />
+      </v-list-item>
     </v-list>
-    <v-btn color="primary">123</v-btn>
+    <v-btn color="primary" class="m-2">New</v-btn>
   </v-main>
 </template>
 
@@ -26,6 +18,8 @@ definePageMeta({
 });
 
 const personRepo = computed(() => useRepo(PersonRepository));
+
+const persons = computed(() => personRepo.value.all());
 
 onMounted(async () => {
   await personRepo.value.fetch();
