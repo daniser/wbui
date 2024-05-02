@@ -66,7 +66,9 @@
 <script setup lang="ts">
 import type { TCountryCode } from "countries-list";
 import type { Gender } from "~/types";
+import { useNuxtApp } from "#app";
 
+const { $api } = useNuxtApp();
 const { t } = useI18n();
 
 const lastNamePlaceholder = computed(() =>
@@ -107,11 +109,11 @@ watch(
 );
 
 const onSubmit = async () => {
-  const { data } = await useApi<{ session_id: string }>("booking/book", {
+  const result = await $api<{ session_id: string }>("booking/book", {
     method: "post",
     body: new URLSearchParams(fields),
   });
 
-  await navigateTo(`/search/${data.value?.session_id}`);
+  await navigateTo(`/search/${result.session_id}`);
 };
 </script>

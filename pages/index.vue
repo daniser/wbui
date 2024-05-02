@@ -31,6 +31,7 @@
               placeholder=""
               persistent-placeholder
               show-adjacent-months
+              hide-actions
             />
           </v-col>
           <v-col>

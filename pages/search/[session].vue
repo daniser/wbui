@@ -97,15 +97,16 @@
 </template>
 
 <script setup lang="ts">
+import { useNuxtApp } from "#app";
 import type { SearchResult } from "~/types";
 
+const { $api } = useNuxtApp();
 const route = useRoute();
 
-const { data } = await useApi<SearchResult>(`booking/search/${route.params.session}`);
-const result = computed<SearchResult | null>(() => data.value);
+const { data: result } = useApi<SearchResult>(`booking/search/${route.params.session}`);
 
 const onSelect = async (fligntGroupId: number) => {
-  await useApi(`booking/select/${route.params.session}`, {
+  await $api(`booking/select/${route.params.session}`, {
     method: "post",
     body: new URLSearchParams({ flightGroupId: fligntGroupId.toString() }),
   });
