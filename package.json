@@ -26,6 +26,7 @@
     "@sidebase/nuxt-auth": "^0.7.2",
     "@tailwindcss/typography": "^0.5.13",
     "countries-list": "^3.1.0",
+    "dayjs": "^1.11.11",
     "eslint": "^9.1.1",
     "flag-icons": "^7.2.1",
     "libphonenumber-js": "^1.10.61",

@@ -6,27 +6,32 @@
     <v-form class="h-[calc(100vh-100px)] flex items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>
-          <v-col><ApiAutocomplete v-model="fields.from" :label="$t('from')" source="airports" /></v-col>
-          <v-col><ApiAutocomplete v-model="fields.to" :label="$t('to')" source="airports" /></v-col>
           <v-col>
-            <v-text-field v-model="formattedDate" readonly :label="$t('date')">
-              <v-overlay
-                open-on-click
-                activator="parent"
-                location-strategy="connected"
-                location="bottom center"
-                origin="auto"
-              >
-                <v-date-picker
-                  v-model="dateTo"
-                  landscape
-                  show-adjacent-months
-                  hide-header
-                  color="primary"
-                  elevation="12"
-                />
-              </v-overlay>
-            </v-text-field>
+            <ApiAutocomplete
+              v-model="fields.from"
+              :label="$t('from')"
+              source="airports"
+              prepend-inner-icon="mdi-airplane-takeoff"
+            />
+          </v-col>
+          <v-col>
+            <ApiAutocomplete
+              v-model="fields.to"
+              :label="$t('to')"
+              source="airports"
+              prepend-inner-icon="mdi-airplane-landing"
+            />
+          </v-col>
+          <v-col>
+            <v-date-input
+              v-model="fields.date"
+              :label="$t('date')"
+              prepend-icon=""
+              prepend-inner-icon="$calendar"
+              placeholder=""
+              persistent-placeholder
+              show-adjacent-months
+            />
           </v-col>
           <v-col>
             <v-btn type="submit" size="x-large" color="primary">{{ $t("search") }}</v-btn>
@@ -38,26 +43,25 @@
 </template>
 
 <script setup lang="ts">
-import { useDate } from "vuetify";
+import dayjs from "dayjs";
+import { useNuxtApp } from "#app";
 
-const date = useDate();
-
-const dateTo = ref();
-
-const formattedDate = computed(() => date.format(dateTo.value, "keyboardDate"));
+const { $api } = useNuxtApp();
 
 const fields = reactive({
   from: "",
   to: "",
-  date: formattedDate.value,
+  date: new Date(),
 });
 
+const formattedDate = computed(() => dayjs(fields.date).format("YYYY-MM-DD"));
+
 const onSubmit = async () => {
-  const { data } = await useApi<{ session_id: string }>("booking/search", {
+  const result = await $api<{ session_id: string }>("booking/search", {
     method: "post",
-    body: new URLSearchParams(fields),
+    body: new URLSearchParams({ ...fields, date: formattedDate.value }),
   });
 
-  await navigateTo(`/search/${data.value?.session_id}`);
+  await navigateTo(`/search/${result.session_id}`);
 };
 </script>
