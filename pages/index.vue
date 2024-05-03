@@ -6,20 +6,27 @@
     <v-form class="h-[calc(100vh-100px)] flex items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>
-          <v-col>
+          <v-col cols="6" class="flex">
             <ApiAutocomplete
               v-model="fields.from"
               :label="$t('from')"
               source="airports"
               prepend-inner-icon="mdi-airplane-takeoff"
+              class="!flex-1"
             />
-          </v-col>
-          <v-col>
+            <v-btn
+              icon="mdi-swap-horizontal"
+              variant="plain"
+              tabindex="-1"
+              class="-mx-2 my-1"
+              @click="[fields.from, fields.to] = [fields.to, fields.from]"
+            />
             <ApiAutocomplete
               v-model="fields.to"
               :label="$t('to')"
               source="airports"
               prepend-inner-icon="mdi-airplane-landing"
+              class="!flex-1"
             />
           </v-col>
           <v-col>
