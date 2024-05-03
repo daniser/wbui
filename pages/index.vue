@@ -29,7 +29,6 @@
               prepend-icon=""
               prepend-inner-icon="$calendar"
               placeholder=""
-              persistent-placeholder
               show-adjacent-months
               hide-actions
             />
@@ -49,18 +48,22 @@ import { useNuxtApp } from "#app";
 
 const { $api } = useNuxtApp();
 
-const fields = reactive({
-  from: "",
-  to: "",
-  date: new Date(),
-});
+const fields = reactive<{
+  from?: string;
+  to?: string;
+  date?: Date;
+}>({});
 
-const formattedDate = computed(() => dayjs(fields.date).format("YYYY-MM-DD"));
+const formattedDate = computed(() => fields.date && dayjs(fields.date).format("YYYY-MM-DD"));
 
 const onSubmit = async () => {
   const result = await $api<{ session_id: string }>("booking/search", {
     method: "post",
-    body: new URLSearchParams({ ...fields, date: formattedDate.value }),
+    body: new URLSearchParams({
+      from: fields.from ?? "",
+      to: fields.to ?? "",
+      date: formattedDate.value ?? "",
+    }),
   });
 
   await navigateTo(`/search/${result.session_id}`);
