@@ -3,11 +3,13 @@ import { Attr, Str, Cast, BelongsTo } from "pinia-orm/decorators";
 import { DateCast } from "pinia-orm/casts";
 import Person from "~/models/Person";
 import type { DocumentType } from "~/types";
+import type { PersonDocument as TPersonDocument } from "~/types/persons";
 
 export default class PersonDocument extends Model {
   static entity = "person_documents";
 
-  @Attr(null) declare id: number | null;
+  @Attr() declare id: number;
+  @Attr() declare person_id: number;
   @Str("") declare issued_by: string;
   @Str("") declare type: DocumentType;
   @Str("") declare number: string;
@@ -18,4 +20,35 @@ export default class PersonDocument extends Model {
   @Str("") declare middle_name: string | null;
 
   @BelongsTo(() => Person, "person_id") declare person: Person | null;
+
+  static created(document: PersonDocument) {
+    document.$isDirty() &&
+      useNuxtApp().$capi<TPersonDocument>(`persons/${document.person_id}/documents`, {
+        method: "POST",
+        body: new URLSearchParams(document.$getAttributes() as any),
+        onResponseError({ request, options, response }) {
+          //
+        },
+      });
+  }
+
+  static updated(document: PersonDocument) {
+    document.$isDirty() &&
+      useNuxtApp().$capi<TPersonDocument>(`persons/${document.person_id}/documents/${document.id}`, {
+        method: "PUT",
+        body: new URLSearchParams(document.$getAttributes() as any),
+        onResponseError({ request, options, response }) {
+          //
+        },
+      });
+  }
+
+  static deleted(document: PersonDocument) {
+    useNuxtApp().$capi<TPersonDocument>(`persons/${document.person_id}/documents/${document.id}`, {
+      method: "DELETE",
+      onResponseError({ request, options, response }) {
+        //
+      },
+    });
+  }
 }

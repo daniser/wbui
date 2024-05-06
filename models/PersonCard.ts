@@ -5,7 +5,8 @@ import Person from "~/models/Person";
 export default class PersonCard extends Model {
   static entity = "person_cards";
 
-  @Attr(null) declare id: number | null;
+  @Attr() declare id: number;
+  @Attr() declare person_id: number;
   @Str("") declare airline: string;
   @Str("") declare number: string;
 

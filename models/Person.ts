@@ -9,7 +9,7 @@ import type { Person as TPerson } from "~/types/persons";
 export default class Person extends Model {
   static entity = "people";
 
-  @Attr(null) declare id: number;
+  @Attr() declare id: number;
   @Str("") declare name: string;
   @Str("") declare gender: Gender;
   @Cast(() => DateCast) @Attr() declare birth_date: Date;
@@ -20,20 +20,21 @@ export default class Person extends Model {
 
   @HasMany(() => PersonDocument, "person_id")
   @OnDelete("cascade")
-  declare documents?: PersonDocument[];
+  declare documents: PersonDocument[];
 
   @HasMany(() => PersonCard, "person_id")
   @OnDelete("cascade")
-  declare cards?: PersonCard[];
+  declare cards: PersonCard[];
 
   static created(person: Person) {
-    useNuxtApp().$capi<TPerson>("persons", {
-      method: "POST",
-      body: new URLSearchParams(person.$getAttributes() as any),
-      onResponseError({ request, options, response }) {
-        //
-      },
-    });
+    person.$isDirty() &&
+      useNuxtApp().$capi<TPerson>("persons", {
+        method: "POST",
+        body: new URLSearchParams(person.$getAttributes() as any),
+        onResponseError({ request, options, response }) {
+          //
+        },
+      });
   }
 
   static updated(person: Person) {

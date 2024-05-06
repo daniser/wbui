@@ -9,12 +9,13 @@ export interface Person {
   email?: string;
   created_at: Date;
   updated_at: Date;
-  documents?: PersonDocument[];
-  cards?: PersonCard[];
+  documents: PersonDocument[];
+  cards: PersonCard[];
 }
 
 export interface PersonDocument {
   id: number;
+  person_id: number;
   issued_by: string;
   type: DocumentType;
   number: string;
@@ -27,6 +28,7 @@ export interface PersonDocument {
 
 export interface PersonCard {
   id: number;
+  person_id: number;
   airline: string;
   number: string;
 }
