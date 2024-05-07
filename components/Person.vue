@@ -4,6 +4,9 @@
       <v-card variant="tonal">
         <v-card-text>
           <v-text-field v-model="proxyModel.value.name" variant="underlined" />
+          <div v-for="document in proxyModel.value.documents" :key="document.id">
+            <v-text-field v-model="document.number" variant="underlined" />
+          </div>
         </v-card-text>
         <v-card-actions>
           <component :is="actions" />
