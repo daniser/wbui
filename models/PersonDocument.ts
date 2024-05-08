@@ -1,7 +1,6 @@
 import { Model } from "pinia-orm";
 import { Attr, Str, Cast, BelongsTo } from "pinia-orm/decorators";
 import { DateCast } from "pinia-orm/casts";
-import { equals } from "~/utils";
 import Person from "~/models/Person";
 import type { DocumentType } from "~/types";
 import type { PersonDocument as TPersonDocument } from "~/types/persons";
@@ -22,8 +21,8 @@ export default class PersonDocument extends Model {
 
   @BelongsTo(() => Person, "person_id") declare person: Person | null;
 
-  static created(document: PersonDocument, record?: Record<string, any>) {
-    equals(record, document.$getAttributes()) ||
+  static creating(document: PersonDocument) {
+    document.$isDirty() &&
       useNuxtApp().$capi<TPersonDocument>(`persons/${document.person_id}/documents`, {
         method: "POST",
         body: new URLSearchParams(document.$getAttributes() as any),
@@ -33,8 +32,8 @@ export default class PersonDocument extends Model {
       });
   }
 
-  static updated(document: PersonDocument, record?: Record<string, any>) {
-    equals(record, document.$getAttributes()) ||
+  static updating(document: PersonDocument) {
+    document.$isDirty() &&
       useNuxtApp().$capi<TPersonDocument>(`persons/${document.person_id}/documents/${document.id}`, {
         method: "PUT",
         body: new URLSearchParams(document.$getAttributes() as any),
@@ -44,7 +43,7 @@ export default class PersonDocument extends Model {
       });
   }
 
-  static deleted(document: PersonDocument) {
+  static deleting(document: PersonDocument) {
     useNuxtApp().$capi<TPersonDocument>(`persons/${document.person_id}/documents/${document.id}`, {
       method: "DELETE",
       onResponseError({ request, options, response }) {

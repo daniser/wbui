@@ -1398,7 +1398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.11.2, @nuxt/kit@npm:^3.10.3, @nuxt/kit@npm:^3.11.2, @nuxt/kit@npm:^3.5.0, @nuxt/kit@npm:^3.7.3, @nuxt/kit@npm:^3.9.0":
+"@nuxt/kit@npm:3.11.2, @nuxt/kit@npm:^3.10.3, @nuxt/kit@npm:^3.11.2, @nuxt/kit@npm:^3.5.0, @nuxt/kit@npm:^3.9.0":
   version: 3.11.2
   resolution: "@nuxt/kit@npm:3.11.2"
   dependencies:
@@ -1904,28 +1904,21 @@ __metadata:
   linkType: hard
 
 "@pinia-orm/normalizr@npm:>=1.7.0":
-  version: 1.7.0
-  resolution: "@pinia-orm/normalizr@npm:1.7.0"
-  checksum: 10c0/aa2e58922af64f020dcff93a4fb90eac1dab2ee37bc731052c08c2716c473f448313fb7c1472e6082dc053aa990849baae76b9f6fa03f2bc93404b0ec38ec7b6
+  version: 1.9.0
+  resolution: "@pinia-orm/normalizr@npm:1.9.0"
+  checksum: 10c0/2674e1d9263056b46fe7d3834ad4a4ff30f5d1c506c1a641796ffd7db823a3e747a2c6fb1bdd7ab99f9a3efcb68715603ce1d960a8932418115a025391979570
   languageName: node
   linkType: hard
 
-"@pinia-orm/normalizr@npm:@pinia-orm/normalizr-edge@1.9.0-28585987.4ecf93f":
-  version: 1.9.0-28585987.4ecf93f
-  resolution: "@pinia-orm/normalizr-edge@npm:1.9.0-28585987.4ecf93f"
-  checksum: 10c0/87bcbf84cb6a5a4b681e170ae674c84cf4ddc68b59c541f385fe5fa435ff4349cd76312cf29bb41ba226f422be764cf756a7b49a51259d3f6929c20657e6d0ac
-  languageName: node
-  linkType: hard
-
-"@pinia-orm/nuxt@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "@pinia-orm/nuxt@npm:1.7.0"
+"@pinia-orm/nuxt@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "@pinia-orm/nuxt@npm:1.9.0"
   dependencies:
-    "@nuxt/kit": "npm:^3.7.3"
-    pinia-orm: "npm:>=1.7.0"
+    "@nuxt/kit": "npm:^3.11.2"
+    pinia-orm: "npm:1.9.0"
   peerDependencies:
-    "@pinia/nuxt": ^0.4.11
-  checksum: 10c0/d4eda46407ad3aef4010125dbed941019b3ccc12ddd4c9b5cc6bed5d6d6c9bc16432f0e365e05b4fcd34f7a9f148e9f97eb4a4e8ad3555f36166b21151a50192
+    "@pinia/nuxt": ^0.5.1
+  checksum: 10c0/2491301ad18d656222724bf615456827e04dbdc127f4c1ead856ec2f24180cf57d651a319e747317a7b7f497075b76da297f00a7217cd9f2ef1e8fc4842eb319
   languageName: node
   linkType: hard
 
@@ -2455,11 +2448,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.12.10
-  resolution: "@types/node@npm:20.12.10"
+  version: 20.12.11
+  resolution: "@types/node@npm:20.12.11"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/2cc3b6ea09894ed1a3cf39f6491ec539281580f4ff83216e7d26ce85c83237fe0543c0ca49e25b2515ccdb6c8814b488d17a64a05f536dcaea94f9d32a60c7d7
+  checksum: 10c0/efaa7b08c50ba6e6982ac7d531ba08d5935539ba76e954807df1ff9382a319ead7e003ccaca5ad7cf33ecf53f212507f7c1f2794bd2ff52df6365fef21f6e1fb
   languageName: node
   linkType: hard
 
@@ -8133,25 +8126,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia-orm@npm:>=1.7.0":
-  version: 1.7.2
-  resolution: "pinia-orm@npm:1.7.2"
+"pinia-orm@npm:1.9.0, pinia-orm@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "pinia-orm@npm:1.9.0"
   dependencies:
     "@pinia-orm/normalizr": "npm:>=1.7.0"
   peerDependencies:
-    pinia: ^2.1.6
-  checksum: 10c0/ada02fd4f41a1144be9b056bcd62d154673042c056389179d6c7d7a0a87b240e6dcbfc06f4c91998b594cbf46bdec737c915a9037dac7024be9e6603dd0a36c0
-  languageName: node
-  linkType: hard
-
-"pinia-orm@npm:pinia-orm-edge@latest":
-  version: 1.9.0-28585987.4ecf93f
-  resolution: "pinia-orm-edge@npm:1.9.0-28585987.4ecf93f"
-  dependencies:
-    "@pinia-orm/normalizr": "npm:@pinia-orm/normalizr-edge@1.9.0-28585987.4ecf93f"
-  peerDependencies:
     pinia: ^2.1.7
-  checksum: 10c0/f1718437914e07091c0476042702584359788662ea6373d42e3eeff6409d01da4906c61f7bcceae671bc07e5350caeb9db18b90fb9ea59e3651c4e0d5afe736c
+  checksum: 10c0/c54235f68e153faabd243fb9864d84ebf48288d808b2f0cb38d333fbb65153d5f495bd5aee7f556d893a62a547020da73f8358e0af350182d31b31e25c432272
   languageName: node
   linkType: hard
 
@@ -10862,7 +10844,7 @@ __metadata:
     "@nuxtjs/color-mode": "npm:^3.4.1"
     "@nuxtjs/i18n": "npm:^8.3.1"
     "@nuxtjs/tailwindcss": "npm:^6.12.0"
-    "@pinia-orm/nuxt": "npm:^1.7.0"
+    "@pinia-orm/nuxt": "npm:^1.9.0"
     "@pinia/nuxt": "npm:^0.5.1"
     "@sidebase/nuxt-auth": "npm:^0.7.2"
     "@tailwindcss/typography": "npm:^0.5.13"
@@ -10874,7 +10856,7 @@ __metadata:
     next-auth: "npm:~4.21.1"
     nuxt: "npm:^3.11.2"
     pinia: "npm:^2.1.7"
-    pinia-orm: "npm:pinia-orm-edge@latest"
+    pinia-orm: "npm:^1.9.0"
     prettier: "npm:^3.2.5"
     tailwindcss: "npm:^3.4.3"
     typescript: "npm:^5.4.5"

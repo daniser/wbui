@@ -1,7 +1,6 @@
 import { Model } from "pinia-orm";
 import { Attr, Str, Cast, HasMany, OnDelete } from "pinia-orm/decorators";
 import { DateCast } from "pinia-orm/casts";
-import { equals } from "~/utils";
 import PersonDocument from "~/models/PersonDocument";
 import PersonCard from "~/models/PersonCard";
 import type { Gender } from "~/types";
@@ -27,8 +26,8 @@ export default class Person extends Model {
   @OnDelete("cascade")
   declare cards: PersonCard[];
 
-  static created(person: Person, record?: Record<string, any>) {
-    equals(record, person.$getAttributes()) ||
+  static creating(person: Person) {
+    person.$isDirty() &&
       useNuxtApp().$capi<TPerson>("persons", {
         method: "POST",
         body: new URLSearchParams(person.$getAttributes() as any),
@@ -38,8 +37,8 @@ export default class Person extends Model {
       });
   }
 
-  static updated(person: Person, record?: Record<string, any>) {
-    equals(record, person.$getAttributes()) ||
+  static updating(person: Person) {
+    person.$isDirty() &&
       useNuxtApp().$capi<TPerson>(`persons/${person.id}`, {
         method: "PUT",
         body: new URLSearchParams(person.$getAttributes() as any),
@@ -49,7 +48,7 @@ export default class Person extends Model {
       });
   }
 
-  static deleted(person: Person) {
+  static deleting(person: Person) {
     useNuxtApp().$capi<TPerson>(`persons/${person.id}`, {
       method: "DELETE",
       onResponseError({ request, options, response }) {
