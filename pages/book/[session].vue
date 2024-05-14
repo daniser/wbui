@@ -8,8 +8,8 @@
         <v-row>
           <v-col cols="2">
             <v-btn-toggle v-model="fields.gender" mandatory divided variant="outlined">
-              <v-btn icon="mdi-face-man" value="MALE" :title="$t('male')" />
-              <v-btn icon="mdi-face-woman" value="FEMALE" :title="$t('female')" />
+              <v-btn icon="mdi-gender-male" color="blue" value="MALE" :title="$t('male')" />
+              <v-btn icon="mdi-gender-female" color="pink" value="FEMALE" :title="$t('female')" />
             </v-btn-toggle>
           </v-col>
           <v-col><v-text-field :label="$t('last_name')" :placeholder="lastNamePlaceholder" /></v-col>

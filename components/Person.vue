@@ -7,8 +7,8 @@
             <v-row>
               <v-col cols="1">
                 <v-btn-toggle v-model="proxyModel.value.gender" mandatory divided variant="tonal" :density="density">
-                  <v-btn icon="mdi-face-man" value="MALE" :title="$t('male')" />
-                  <v-btn icon="mdi-face-woman" value="FEMALE" :title="$t('female')" />
+                  <v-btn icon="mdi-gender-male" color="blue" value="MALE" :title="$t('male')" />
+                  <v-btn icon="mdi-gender-female" color="pink" value="FEMALE" :title="$t('female')" />
                 </v-btn-toggle>
               </v-col>
               <v-col><v-text-field v-bind="props" v-model="proxyModel.value.name" /></v-col>
