@@ -2,7 +2,18 @@
   <v-main>
     <v-list>
       <v-list-item v-for="person in persons" :key="person.value.id" class="mx-2">
-        <Person v-model="person.value" variant="underlined" density="compact" />
+        <v-confirm-edit v-model="person.value">
+          <template #default="{ model: proxyModel, actions }">
+            <v-card variant="tonal">
+              <v-card-text>
+                <Person v-model="proxyModel.value" variant="underlined" density="compact" />
+              </v-card-text>
+              <v-card-actions>
+                <component :is="actions" />
+              </v-card-actions>
+            </v-card>
+          </template>
+        </v-confirm-edit>
       </v-list-item>
     </v-list>
     <v-btn color="primary" class="m-2">New</v-btn>

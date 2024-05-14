@@ -1,95 +1,84 @@
 <template>
-  <v-confirm-edit v-model="person">
-    <template #default="{ model: proxyModel, actions }">
-      <v-card variant="tonal">
-        <v-card-text>
-          <v-container fluid>
-            <v-row>
-              <v-col cols="1">
-                <v-btn-toggle v-model="proxyModel.value.gender" mandatory divided variant="tonal" :density="density">
-                  <v-btn icon="mdi-gender-male" color="blue" value="MALE" :title="$t('male')" />
-                  <v-btn icon="mdi-gender-female" color="pink" value="FEMALE" :title="$t('female')" />
-                </v-btn-toggle>
-              </v-col>
-              <v-col><v-text-field v-bind="props" v-model="proxyModel.value.name" /></v-col>
-              <v-col cols="2">
-                <v-date-input
-                  v-bind="props"
-                  v-model="proxyModel.value.birth_date"
-                  :label="$t('date_of_birth')"
-                  prepend-icon=""
-                  placeholder=""
-                  show-adjacent-months
-                  hide-actions
-                />
-              </v-col>
-            </v-row>
-            <v-row v-for="document in proxyModel.value.documents" :key="document.id">
-              <v-col>
-                <CountrySelect
-                  v-bind="props"
-                  v-model="document.issued_by"
-                  :label="$t('citizenship')"
-                  flag="none"
-                  presentation="name"
-                />
-              </v-col>
-              <v-col><v-text-field v-bind="props" v-model="document.number" :label="$t('document_number')" /></v-col>
-              <v-col>
-                <v-text-field
-                  v-bind="props"
-                  v-model="document.first_name"
-                  :label="$t('first_name')"
-                  :placeholder="firstNamePlaceholder"
-                />
-              </v-col>
-              <v-col>
-                <v-text-field
-                  v-bind="props"
-                  v-model="document.last_name"
-                  :label="$t('last_name')"
-                  :placeholder="lastNamePlaceholder"
-                />
-              </v-col>
-              <v-col>
-                <v-text-field
-                  v-bind="props"
-                  v-model="document.middle_name"
-                  :label="$t('middle_name')"
-                  :placeholder="middleNamePlaceholder"
-                />
-              </v-col>
-              <v-col>
-                <v-date-input
-                  v-bind="props"
-                  v-model="document.issue_date"
-                  :label="$t('issue_date')"
-                  prepend-icon=""
-                  placeholder=""
-                  show-adjacent-months
-                  hide-actions
-                />
-              </v-col>
-              <v-col>
-                <v-date-input
-                  v-bind="props"
-                  v-model="document.expiry_date"
-                  :label="$t('expiry_date')"
-                  prepend-icon=""
-                  placeholder=""
-                  show-adjacent-months
-                  hide-actions
-                />
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card-text>
-        <v-card-actions>
-          <component :is="actions" />
-        </v-card-actions>
-      </v-card>
-    </template>
-  </v-confirm-edit>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="1">
+        <v-btn-toggle v-model="person.gender" mandatory divided variant="tonal" :density="density">
+          <v-btn icon="mdi-gender-male" color="blue" value="MALE" :title="$t('male')" />
+          <v-btn icon="mdi-gender-female" color="pink" value="FEMALE" :title="$t('female')" />
+        </v-btn-toggle>
+      </v-col>
+      <v-col><v-text-field v-bind="props" v-model="person.name" /></v-col>
+      <v-col cols="2">
+        <v-date-input
+          v-bind="props"
+          v-model="person.birth_date"
+          :label="$t('date_of_birth')"
+          prepend-icon=""
+          placeholder=""
+          show-adjacent-months
+          hide-actions
+        />
+      </v-col>
+    </v-row>
+    <v-row v-for="document in person.documents" :key="document.id">
+      <v-col>
+        <CountrySelect
+          v-bind="props"
+          v-model="document.issued_by"
+          :label="$t('citizenship')"
+          flag="none"
+          presentation="name"
+        />
+      </v-col>
+      <v-col><v-text-field v-bind="props" v-model="document.number" :label="$t('document_number')" /></v-col>
+      <v-col>
+        <v-text-field
+          v-bind="props"
+          v-model="document.first_name"
+          :label="$t('first_name')"
+          :placeholder="firstNamePlaceholder"
+        />
+      </v-col>
+      <v-col>
+        <v-text-field
+          v-bind="props"
+          v-model="document.last_name"
+          :label="$t('last_name')"
+          :placeholder="lastNamePlaceholder"
+        />
+      </v-col>
+      <v-col>
+        <v-text-field
+          v-bind="props"
+          v-model="document.middle_name"
+          :label="$t('middle_name')"
+          :placeholder="middleNamePlaceholder"
+        />
+      </v-col>
+      <v-col>
+        <v-date-input
+          v-bind="props"
+          v-model="document.issue_date"
+          :label="$t('issue_date')"
+          prepend-icon=""
+          placeholder=""
+          show-adjacent-months
+          hide-actions
+        />
+      </v-col>
+      <v-col>
+        <v-date-input
+          v-bind="props"
+          v-model="document.expiry_date"
+          :label="$t('expiry_date')"
+          prepend-icon=""
+          placeholder=""
+          show-adjacent-months
+          hide-actions
+        />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup lang="ts">
