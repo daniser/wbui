@@ -1,3 +1,4 @@
+import type { TCountryCode } from "countries-list";
 import type { Gender, DocumentType } from "~/types";
 
 export interface Person {
@@ -16,7 +17,7 @@ export interface Person {
 export interface PersonDocument {
   id: number;
   person_id: number;
-  issued_by: string;
+  issued_by: TCountryCode;
   type: DocumentType;
   number: string;
   issue_date: Date;

@@ -2,6 +2,7 @@ import { Model } from "pinia-orm";
 import { Attr, Str, Cast, BelongsTo } from "pinia-orm/decorators";
 import { DateCast } from "pinia-orm/casts";
 import Person from "~/models/Person";
+import type { TCountryCode } from "countries-list";
 import type { DocumentType } from "~/types";
 import type { PersonDocument as TPersonDocument } from "~/types/persons";
 
@@ -10,7 +11,7 @@ export default class PersonDocument extends Model {
 
   @Attr() declare id: number;
   @Attr() declare person_id: number;
-  @Str("") declare issued_by: string;
+  @Str("") declare issued_by: TCountryCode;
   @Str("") declare type: DocumentType;
   @Str("") declare number: string;
   @Cast(() => DateCast) @Attr() declare issue_date: Date;

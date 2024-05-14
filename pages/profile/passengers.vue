@@ -2,7 +2,7 @@
   <v-main>
     <v-list>
       <v-list-item v-for="person in persons" :key="person.value.id" class="mx-2">
-        <Person v-model="person.value" />
+        <Person v-model="person.value" variant="underlined" density="compact" />
       </v-list-item>
     </v-list>
     <v-btn color="primary" class="m-2">New</v-btn>
