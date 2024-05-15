@@ -47,4 +47,15 @@ export default defineI18nLocale(() => ({
   system: "System",
   tagline: "Your personal ticket provider",
   to: "To",
+
+  document: {
+    internal: "Internal passport of RF",
+    foreign: "International passport of RF",
+    passport: "Foreign citizen's passport",
+    birth_certificate: "Birth certificate",
+    officer_id: "Officer ID",
+    military_id: "Russian military ID",
+    seamans_id: "Seaman's ID",
+    return_id: "Certificate of return to the RF",
+  },
 }));

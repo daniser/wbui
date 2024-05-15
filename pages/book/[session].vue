@@ -37,7 +37,7 @@
             />
           </v-col>
           <v-col>
-            <v-select :label="$t('document_type')" prepend-inner-icon="mdi-passport-biometric" />
+            <DocumentTypeSelect :label="$t('document_type')" prepend-inner-icon="mdi-passport-biometric" />
           </v-col>
           <v-col>
             <v-text-field :label="$t('document_number')" prepend-inner-icon="mdi-pound" />
@@ -74,6 +74,7 @@
 import type { TCountryCode } from "countries-list";
 import type { Gender } from "~/types";
 import { useNuxtApp } from "#app";
+import DocumentTypeSelect from "~/components/DocumentTypeSelect.vue";
 
 const { $api } = useNuxtApp();
 const { t } = useI18n();
