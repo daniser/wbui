@@ -16,7 +16,14 @@
           <v-col><v-text-field :label="$t('first_name')" :placeholder="firstNamePlaceholder" /></v-col>
           <v-col><v-text-field :label="$t('middle_name')" :placeholder="middleNamePlaceholder" /></v-col>
           <v-col>
-            <v-text-field type="date" :label="$t('date_of_birth')" />
+            <v-date-input
+              :label="$t('date_of_birth')"
+              prepend-icon=""
+              prepend-inner-icon="$calendar"
+              placeholder=""
+              show-adjacent-months
+              hide-actions
+            />
           </v-col>
         </v-row>
         <v-row>
