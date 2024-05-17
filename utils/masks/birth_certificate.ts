@@ -19,6 +19,17 @@ const birthCertificateMask: MaskitoOptions = {
           }
         : { elementState, data },
 
+    ({ elementState, data }, actionType) =>
+      actionType === "deleteBackward" && /(-[А-ЯЁ]| \d)$/.test(elementState.value)
+        ? {
+            elementState: {
+              selection: elementState.selection.map((x) => --x) as unknown as typeof elementState.selection,
+              value: elementState.value.slice(0, -1),
+            },
+            data,
+          }
+        : { elementState, data },
+
     ({ elementState, data }) => ({
       elementState: {
         ...elementState,
