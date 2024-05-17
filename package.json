@@ -12,12 +12,12 @@
     "prettify": "prettier --write ."
   },
   "devDependencies": {
-    "@maskito/core": "^2.3.1",
-    "@maskito/kit": "^2.3.1",
-    "@maskito/phone": "^2.3.1",
-    "@maskito/vue": "^2.3.1",
+    "@maskito/core": "^2.3.2",
+    "@maskito/kit": "^2.3.2",
+    "@maskito/phone": "^2.3.2",
+    "@maskito/vue": "^2.3.2",
     "@mdi/font": "^7.4.47",
-    "@nuxt/eslint": "^0.3.12",
+    "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/color-mode": "^3.4.1",
     "@nuxtjs/i18n": "^8.3.1",
     "@nuxtjs/tailwindcss": "^6.12.0",

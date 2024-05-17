@@ -37,10 +37,19 @@
             />
           </v-col>
           <v-col>
-            <DocumentTypeSelect :label="$t('document_type')" prepend-inner-icon="mdi-passport-biometric" />
+            <DocumentTypeSelect
+              v-model="fields.document_type"
+              :label="$t('document_type')"
+              prepend-inner-icon="mdi-passport-biometric"
+            />
           </v-col>
           <v-col>
-            <v-text-field :label="$t('document_number')" prepend-inner-icon="mdi-pound" />
+            <DocumentNumberField
+              :type="fields.document_type"
+              :disabled="!fields.document_type"
+              :label="$t('document_number')"
+              prepend-inner-icon="mdi-pound"
+            />
           </v-col>
         </v-row>
         <v-row>
@@ -72,7 +81,7 @@
 
 <script setup lang="ts">
 import type { TCountryCode } from "countries-list";
-import type { Gender } from "~/types";
+import type { DocumentType, Gender } from "~/types";
 import { useNuxtApp } from "#app";
 import DocumentTypeSelect from "~/components/DocumentTypeSelect.vue";
 
@@ -103,11 +112,12 @@ const excludedCountries: TCountryCode[] = t("excluded_countries")
   .split(",")
   .filter((x) => x) as TCountryCode[];
 
-const fields = reactive<{ gender?: Gender; citizenship?: TCountryCode; phone: string }>({
-  gender: undefined,
-  citizenship: undefined,
-  phone: "",
-});
+const fields = reactive<{
+  gender?: Gender;
+  citizenship?: TCountryCode;
+  document_type?: DocumentType;
+  phone?: string;
+}>({});
 
 const strict = ref(false);
 
