@@ -30,7 +30,18 @@
           presentation="name"
         />
       </v-col>
-      <v-col><v-text-field v-bind="props" v-model="document.number" :label="$t('document_number')" /></v-col>
+      <v-col>
+        <DocumentTypeSelect v-bind="props" v-model="document.type" :label="$t('document_type')" />
+      </v-col>
+      <v-col>
+        <DocumentNumberField
+          v-bind="props"
+          v-model="document.number"
+          :type="document.type"
+          :disabled="!document.type"
+          :label="$t('document_number')"
+        />
+      </v-col>
       <v-col>
         <v-text-field
           v-bind="props"

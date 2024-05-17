@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     transpile: ["pinia-orm", "vue-debounce"],
   },
   devtools: { enabled: true },
+  features: { devLogs: false },
   modules: [
     "@nuxt/eslint",
     "@nuxtjs/color-mode",
