@@ -23,15 +23,13 @@
 <script setup lang="ts">
 import PersonRepository from "~/repositories/PersonRepository";
 import type Person from "~/models/Person";
-import type { Repository } from "pinia-orm";
 
 definePageMeta({
   layout: "profile",
   middleware: "auth",
 });
 
-// @ts-expect-error
-const personRepo = computed(() => useRepo(PersonRepository) as Repository<Person>);
+const personRepo = computed(() => useRepo(PersonRepository));
 
 const persons = computed(() =>
   personRepo.value.all().map((person) =>
