@@ -28,7 +28,7 @@
     "countries-list": "^3.1.0",
     "dayjs": "^1.11.11",
     "eslint": "^9.3.0",
-    "flag-icons": "^7.2.1",
+    "flag-icons": "^7.2.2",
     "libphonenumber-js": "^1.11.1",
     "next-auth": "~4.21.1",
     "nuxt": "^3.11.2",
@@ -42,7 +42,7 @@
     "vue-debounce": "^5.0.0",
     "vue-router": "^4.3.2",
     "vue-tsc": "^1.8.27",
-    "vuetify-nuxt-module": "^0.14.0"
+    "vuetify-nuxt-module": "^0.14.1"
   },
   "packageManager": "yarn@4.2.2"
 }

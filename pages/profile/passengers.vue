@@ -3,10 +3,16 @@
     <v-list>
       <v-list-item v-for="person in persons" :key="person.value.id" class="mx-2">
         <v-confirm-edit v-model="person.value">
-          <template #default="{ model: proxyModel, actions }">
+          <template #default="{ model: proxyModel, save, cancel, actions }">
             <v-card variant="tonal">
               <v-card-text>
-                <Person v-model="proxyModel.value" variant="underlined" density="compact" />
+                <Person
+                  v-model="proxyModel.value"
+                  variant="underlined"
+                  density="compact"
+                  @keydown.enter="save"
+                  @keydown.esc="cancel"
+                />
               </v-card-text>
               <v-card-actions>
                 <component :is="actions" />
