@@ -4,15 +4,9 @@
       <v-list-item v-for="person in persons" :key="person.value.id" class="mx-2">
         <v-confirm-edit v-model="person.value">
           <template #default="{ model: proxyModel, save, cancel, actions }">
-            <v-card variant="tonal">
+            <v-card variant="tonal" @keydown.enter="save" @keydown.esc="cancel">
               <v-card-text>
-                <Person
-                  v-model="proxyModel.value"
-                  variant="underlined"
-                  density="compact"
-                  @keydown.enter="save"
-                  @keydown.esc="cancel"
-                />
+                <Person v-model="proxyModel.value" variant="underlined" density="compact" />
               </v-card-text>
               <v-card-actions>
                 <component :is="actions" />
