@@ -19,9 +19,16 @@
               </div>
             </v-col>
             <v-col>
+              <img
+                class="max-h-10 max-w-40 mx-auto"
+                :src="`/airlines/${flightGroup.carrier.code}.svg`"
+                :alt="flightGroup.carrier.name"
+              />
+            </v-col>
+            <!--<v-col>
               <div>{{ flightGroup.carrier.name }}</div>
               <div class="text-medium-emphasis">{{ flightGroup.provider }} {{ flightGroup.gds }}</div>
-            </v-col>
+            </v-col>-->
             <v-col>
               <div v-for="(itinerary, index) in flightGroup.itineraries" :key="index">
                 {{ itinerary.flights[0].segments[0].locationBegin.code }}-{{
