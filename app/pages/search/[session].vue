@@ -15,7 +15,7 @@
             </v-col>
             <v-col>
               <div v-for="(itinerary, index) in flightGroup.itineraries" :key="index">
-                {{ itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].dateEnd }}
+                {{ itinerary.flights[0].segments.at(-1)!.dateEnd }}
               </div>
             </v-col>
             <v-col>
@@ -32,7 +32,7 @@
             <v-col>
               <div v-for="(itinerary, index) in flightGroup.itineraries" :key="index">
                 {{ itinerary.flights[0].segments[0].locationBegin.code }}-{{
-                  itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].locationEnd.code
+                  itinerary.flights[0].segments.at(-1)!.locationEnd.code
                 }}
                 {{ itinerary.flights[0].segments[0].carrier.code }}-{{ itinerary.flights[0].segments[0].flightNumber }}
               </div>
@@ -57,8 +57,8 @@
                 <v-expansion-panel-title>
                   {{ itinerary.flights[0].segments[0].cityBegin.name }} ({{
                     itinerary.flights[0].segments[0].locationBegin.name
-                  }}) - {{ itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].cityEnd.name }} ({{
-                    itinerary.flights[0].segments[itinerary.flights[0].segments.length - 1].locationEnd.name
+                  }}) - {{ itinerary.flights[0].segments.at(-1)!.cityEnd.name }} ({{
+                    itinerary.flights[0].segments.at(-1)!.locationEnd.name
                   }})
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>

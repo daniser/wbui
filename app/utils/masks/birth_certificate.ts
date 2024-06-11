@@ -1,7 +1,7 @@
 import type { MaskitoOptions } from "@maskito/core";
 import type { ElementState } from "@maskito/core/src/lib/types";
 
-const slice = (elementState: ElementState) => [
+const slice = (elementState: ElementState): [string, string, string] => [
   elementState.value.slice(0, elementState.selection[0]),
   elementState.value.slice(...elementState.selection),
   elementState.value.slice(elementState.selection[1]),

@@ -282,7 +282,7 @@ export interface FareTotalOriginal {
 
 export interface Flight {
   token: string;
-  segments: Segment[];
+  segments: [Segment, ...Segment[]];
   travelDuration?: number;
   seatsAvailable?: number;
 }
@@ -315,7 +315,7 @@ export interface FlightGroup {
 }
 
 export interface Itinerary {
-  flights: Flight[];
+  flights: [Flight, ...Flight[]];
 }
 
 export interface Landing {
