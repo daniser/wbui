@@ -44,11 +44,6 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: true,
-    tsConfig: {
-      compilerOptions: {
-        experimentalDecorators: true,
-      },
-    },
   },
   vite: {
     esbuild: {
