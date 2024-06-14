@@ -17,8 +17,10 @@
         <PersonalMenu open-on-hover />
       </template>
     </v-app-bar>
+    <v-footer app color="primary" class="justify-center">
+      {{ new Date().getFullYear() }} © {{ $account?.name }}
+    </v-footer>
     <slot />
-    <v-footer color="primary" class="justify-center">{{ new Date().getFullYear() }} © {{ $account?.name }}</v-footer>
   </v-app>
 </template>
 
