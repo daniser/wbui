@@ -2,6 +2,7 @@
   <v-autocomplete
     v-model="model"
     v-debounce:500ms="onSearch"
+    @update:focused="onFocus"
     :items="items"
     :suffix="model"
     menu-icon=""
@@ -22,7 +23,7 @@
 import vueDebounce from "vue-debounce";
 import type { Prompt } from "~/types";
 
-const vDebounce = vueDebounce({ lock: true });
+const vDebounce = vueDebounce({ lock: true, listenTo: "input" });
 
 const model = defineModel<string>();
 
@@ -34,5 +35,9 @@ const { $api } = useNuxtApp();
 
 const onSearch = async (search: string) => {
   items.value = search.length < 2 ? [] : await $api(`booking/${props.source}/${search}`);
+};
+
+const onFocus = (focused: boolean) => {
+  if (!focused && !model.value) items.value = [];
 };
 </script>
