@@ -1863,9 +1863,9 @@ __metadata:
   linkType: hard
 
 "@panva/hkdf@npm:^1.0.2":
-  version: 1.1.1
-  resolution: "@panva/hkdf@npm:1.1.1"
-  checksum: 10c0/34f98068a33c031ba112cdfa0c8e29b28336e173a4f93532a24b3196c9f25b2cbd1477cf54a30293f760f909369a725fb645dabb9ed132aec7dedde263a2263e
+  version: 1.2.0
+  resolution: "@panva/hkdf@npm:1.2.0"
+  checksum: 10c0/b372707a1b11eef01561c366219a48795e8076f8a1b7d08dc9ab176a2b22f9be74e7a30d9de5e639b5c474ab15f65a424035a119d7ea70c3b815c5b1c87904ed
   languageName: node
   linkType: hard
 
@@ -6473,9 +6473,9 @@ __metadata:
   linkType: hard
 
 "jose@npm:^4.11.4, jose@npm:^4.15.5":
-  version: 4.15.5
-  resolution: "jose@npm:4.15.5"
-  checksum: 10c0/9f208492f55ae9c547fd407c36f67ec3385051b5ca390e24f5449740f17359640b3f96fabfd38bc132cc4292b964c31b921bf356253373b1bd3eb6df799b7433
+  version: 4.15.7
+  resolution: "jose@npm:4.15.7"
+  checksum: 10c0/ba453909277c6c8bd44c589a4f0b9748f6c1021782b2bef573d1de2b2e54ae667547ef15c76268b604ab330c327db41c3cf2dd7008bf17ae7d3d8e8146ac7213
   languageName: node
   linkType: hard
 

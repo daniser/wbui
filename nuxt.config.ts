@@ -56,6 +56,16 @@ export default defineNuxtConfig({
         },
       },
     },
+    optimizeDeps: {
+      include: [
+        "countries-list",
+        "dayjs",
+        "humanize-duration",
+        "libphonenumber-js/min/metadata",
+        "@maskito/vue",
+        "@maskito/phone",
+      ],
+    },
   },
   auth: {
     provider: {
