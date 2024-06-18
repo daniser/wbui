@@ -26,9 +26,9 @@ const birthCertificateMask: MaskitoOptions = {
       }
 
       const [prefix, selection, suffix] = slice(elementState);
-      const remains = selection.replace(/[^ -]/g, "");
-      const value = (prefix + remains + suffix).replace(/[ -]*$/g, "");
-      let caretPos = actionType === "deleteForward" ? remains.length : 0;
+      const remainder = selection.replace(/[^ -]/g, "");
+      const value = (prefix + remainder + suffix).replace(/[ -]*$/g, "");
+      let caretPos = actionType === "deleteForward" ? remainder.length : 0;
       caretPos = Math.min(elementState.selection[0] + caretPos, value.length);
 
       return {

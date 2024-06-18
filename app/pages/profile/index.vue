@@ -1,7 +1,5 @@
 <template>
-  <v-main>
-    <FlightGroup />
-  </v-main>
+  <v-main>index</v-main>
 </template>
 
 <script setup lang="ts">

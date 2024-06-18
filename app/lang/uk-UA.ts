@@ -5,6 +5,7 @@ export default defineI18nLocale(() => ({
   account: "Особистий кабінет",
   book_flight: "Бронювання авіаквитків",
   booking_class: "Клас бронювання",
+  buy: "Купити",
   citizenship: "Громадянство",
   dark: "Темна",
   date: "Дата",
