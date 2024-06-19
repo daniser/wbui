@@ -3,7 +3,7 @@
     <Head>
       <Title>{{ $t("select_flight") }}</Title>
     </Head>
-    <div v-for="(message, index) in result.messages" :key="index">{{ message.message }}</div>
+    <MessageList :messages="result.messages" />
     <template v-for="(flightGroup, flightGroupId) in result.flightGroups" :key="flightGroup.token">
       <FlightGroup :flight-group="flightGroup" />
     </template>
