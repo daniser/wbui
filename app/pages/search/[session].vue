@@ -3,9 +3,9 @@
     <Head>
       <Title>{{ $t("select_flight") }}</Title>
     </Head>
-    <MessageList :messages="result.messages" />
+    <MessageList :messages="result.messages" class="mx-auto" />
     <template v-for="(flightGroup, flightGroupId) in result.flightGroups" :key="flightGroup.token">
-      <FlightGroup :flight-group="flightGroup" />
+      <FlightGroup :flight-group="flightGroup" class="mx-auto" />
     </template>
   </v-main>
 </template>
