@@ -7,7 +7,7 @@
         <div>{{ firstSegment.locationBegin.name }} ({{ firstSegment.locationBegin.code }})</div>
       </v-col>
       <v-col cols="3" class="pa-0 align-self-center">
-        <ItineraryLimeline :itinerary="itinerary" class="h-7" />
+        <ItineraryTimeline :itinerary="itinerary" class="h-7" />
       </v-col>
       <v-col cols="3">
         <div class="text-xl font-semibold">{{ $d(lastSegment.dateEnd, "time") }}</div>
