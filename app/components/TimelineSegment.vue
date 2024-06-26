@@ -2,8 +2,8 @@
   <div class="segment h-full min-w-4 flex-col content-end text-center">
     <span v-if="title">{{ title }}</span>
     <div class="line" />
-    <v-tooltip v-if="tooltip" activator="parent" location="bottom">
-      {{ tooltip }}
+    <v-tooltip v-if="tooltip || $slots.tooltip" activator="parent" location="bottom">
+      <slot name="tooltip">{{ tooltip }}</slot>
     </v-tooltip>
   </div>
 </template>

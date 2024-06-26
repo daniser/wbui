@@ -47,6 +47,8 @@ export default defineI18nLocale(() => ({
   system: "Системна",
   tagline: "Ваш персональний постачальник авіаквитків",
   to: "Куди",
+  transfer_info: "Пересадка {dur} в {city}",
+  transit_duration: "{dur} у дорозі",
 
   document: {
     internal: "Внутрішній паспорт РФ",

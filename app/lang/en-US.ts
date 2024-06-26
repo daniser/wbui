@@ -48,6 +48,8 @@ export default defineI18nLocale(() => ({
   system: "System",
   tagline: "Your personal ticket provider",
   to: "To",
+  transfer_info: "{dur} transfer in {city}",
+  transit_duration: "{dur} in transit",
 
   document: {
     internal: "Internal passport of RF",
