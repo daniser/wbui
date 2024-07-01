@@ -28,7 +28,7 @@
     "@types/humanize-duration": "^3.27.4",
     "countries-list": "^3.1.0",
     "dayjs": "^1.11.11",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "flag-icons": "^7.2.3",
     "humanize-duration": "^3.32.1",
     "libphonenumber-js": "^1.11.4",
@@ -38,13 +38,16 @@
     "pinia-orm": "^1.9.1",
     "prettier": "^3.3.2",
     "tailwindcss": "^3.4.4",
-    "typescript": "~5.4.5",
+    "typescript": "^5.5.2",
     "typescript-eslint": "^7.14.1",
-    "vue": "^3.4.30",
+    "vue": "^3.4.31",
     "vue-debounce": "^5.0.0",
     "vue-router": "^4.4.0",
-    "vue-tsc": "^1.8.27",
+    "vue-tsc": "^2.0.24",
     "vuetify-nuxt-module": "^0.14.1"
+  },
+  "resolutions": {
+    "vite-plugin-checker": "^0.7.0"
   },
   "packageManager": "yarn@4.3.1"
 }
