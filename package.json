@@ -33,21 +33,18 @@
     "humanize-duration": "^3.32.1",
     "libphonenumber-js": "^1.11.4",
     "next-auth": "~4.21.1",
-    "nuxt": "^3.12.2",
+    "nuxt": "^3.12.3",
     "pinia": "^2.1.7",
     "pinia-orm": "^1.9.1",
     "prettier": "^3.3.2",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2",
-    "typescript-eslint": "^7.14.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.15.0",
     "vue": "^3.4.31",
     "vue-debounce": "^5.0.0",
     "vue-router": "^4.4.0",
     "vue-tsc": "^2.0.24",
     "vuetify-nuxt-module": "^0.14.1"
-  },
-  "resolutions": {
-    "vite-plugin-checker": "^0.7.0"
   },
   "packageManager": "yarn@4.3.1"
 }
