@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["pinia-orm", "vue-debounce"],
   },
+  compatibilityDate: "2024-07-02",
   devtools: { enabled: true },
   features: { devLogs: false },
   modules: [
