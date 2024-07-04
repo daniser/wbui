@@ -60,4 +60,63 @@ export default defineI18nLocale(() => ({
     seamans_id: "Паспорт моряка",
     return_id: "Свидетельство на возвращение в РФ",
   },
+
+  passenger: {
+    adult: {
+      title: "Взрослый | Взрослые",
+      subtitle: "старше 12 лет",
+    },
+    child: {
+      title: "Ребёнок | Дети",
+      subtitle: "от 2 до 12 лет",
+    },
+    infant: {
+      title: "Младенец | Младенцы",
+      subtitle: "до 2 лет",
+    },
+    youth: {
+      title: "Молодёжь",
+      subtitle: "от 12 до 23 лет",
+    },
+    senior: {
+      title: "Пенсионер | Пенсионеры",
+      subtitle: "от 55 лет",
+    },
+    infant_with_seat: {
+      title: "Младенец с местом | Младенцы с местом",
+      subtitle: "до 2 лет",
+    },
+    disabled: {
+      title: "Инвалид | Инвалиды",
+      subtitle: "",
+    },
+    disabled_child: {
+      title: "Ребёнок-инвалид | Дети-инвалиды",
+      subtitle: "от 2 до 12 лет",
+    },
+    escort: {
+      title: "Сопровождающий | Сопровождающие",
+      subtitle: "инвалида",
+    },
+    large_family: {
+      title: "Многодетный(-ая) | Многодетные",
+      subtitle: "от 23 до 55 лет",
+    },
+    state_resident: {
+      title: "Резидент ДФО/КО | Резиденты ДФО/КО",
+      subtitle: "старше 12 лет",
+    },
+    state_resident_child: {
+      title: "Ребёнок ДФО/КО | Дети ДФО/КО",
+      subtitle: "от 2 до 12 лет",
+    },
+    state_resident_youth: {
+      title: "Молодёжь ДФО/КО",
+      subtitle: "от 12 до 23 лет",
+    },
+    state_resident_senior: {
+      title: "Пенсионер ДФО/КО | Пенсионеры ДФО/КО",
+      subtitle: "от 55 лет",
+    },
+  },
 }));

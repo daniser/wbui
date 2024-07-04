@@ -43,7 +43,7 @@
     "vue": "^3.4.31",
     "vue-debounce": "^5.0.0",
     "vue-router": "^4.4.0",
-    "vue-tsc": "^2.0.24",
+    "vue-tsc": "^2.0.26",
     "vuetify-nuxt-module": "^0.14.1"
   },
   "packageManager": "yarn@4.3.1"

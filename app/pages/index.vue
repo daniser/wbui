@@ -41,6 +41,9 @@
             />
           </v-col>
           <v-col>
+            <PassengerTypeSelect plural />
+          </v-col>
+          <v-col>
             <v-btn type="submit" size="x-large" color="primary">{{ $t("search") }}</v-btn>
           </v-col>
         </v-row>
