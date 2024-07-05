@@ -61,4 +61,63 @@ export default defineI18nLocale(() => ({
     seamans_id: "Seaman's ID",
     return_id: "Certificate of return to the RF",
   },
+
+  passenger: {
+    adult: {
+      title: "Adult | Adults",
+      subtitle: "from 12 years old",
+    },
+    child: {
+      title: "Child | Children",
+      subtitle: "from 2 to 12 years old",
+    },
+    infant: {
+      title: "Infant | Infants",
+      subtitle: "under 2 years old",
+    },
+    youth: {
+      title: "Youth",
+      subtitle: "from 12 to 23 years old",
+    },
+    senior: {
+      title: "Senior | Seniors",
+      subtitle: "from 55 years old",
+    },
+    infant_with_seat: {
+      title: "Infant w/ seat | Infants w/ seats",
+      subtitle: "under 2 years old",
+    },
+    disabled: {
+      title: "Disabled",
+      subtitle: "person",
+    },
+    disabled_child: {
+      title: "Disabled child | Disabled children",
+      subtitle: "from 2 to 12 years old",
+    },
+    escort: {
+      title: "Accompanying",
+      subtitle: "disabled person",
+    },
+    large_family: {
+      title: "Large family",
+      subtitle: "from 23 to 55 years old",
+    },
+    state_resident: {
+      title: "FEFD/KR resident | FEFD/KR residents",
+      subtitle: "from 12 years old",
+    },
+    state_resident_child: {
+      title: "FEFD/KR child | FEFD/KR children",
+      subtitle: "from 2 to 12 years old",
+    },
+    state_resident_youth: {
+      title: "FEFD/KR youth",
+      subtitle: "from 12 to 23 years old",
+    },
+    state_resident_senior: {
+      title: "FEFD/KR senior | FEFD/KR seniors",
+      subtitle: "from 55 years old",
+    },
+  },
 }));
