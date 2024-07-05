@@ -1,5 +1,5 @@
 <template>
-  <v-select :items="items" item-props />
+  <CountSelect :items="items" item-props />
 </template>
 
 <script setup lang="ts">
