@@ -41,7 +41,7 @@
             />
           </v-col>
           <v-col>
-            <PassengerTypeSelect plural />
+            <PassengerTypeSelect v-model="fields.passengers" :max="9" plural />
           </v-col>
           <v-col>
             <v-btn type="submit" size="x-large" color="primary">{{ $t("search") }}</v-btn>
@@ -62,7 +62,10 @@ const fields = reactive<{
   from?: string;
   to?: string;
   date?: Date;
-}>({});
+  passengers: Record<string, number>;
+}>({
+  passengers: { ADULT: 1 },
+});
 
 const formattedDate = computed(() => fields.date && dayjs(fields.date).format("YYYY-MM-DD"));
 

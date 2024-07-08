@@ -1,5 +1,5 @@
 <template>
-  <CountSelect :items="items" item-props />
+  <CountSelect v-model="model" :items="items" item-props />
 </template>
 
 <script setup lang="ts">
@@ -8,6 +8,8 @@ const { t } = useI18n();
 const props = defineProps<{
   plural?: boolean;
 }>();
+
+const model = defineModel<Record<string, number>>({ required: true });
 
 const item = (key: string) => ({
   title: t(`passenger.${key}.title`, props.plural ? 2 : 1),

@@ -1,31 +1,35 @@
 <template>
   <v-select multiple>
     <template #item="{ props, item }">
-      <v-number-input
-        variant="plain"
-        control-variant="split"
-        hide-details
+      <CountInput
+        v-model="model[item.raw.value]"
         :label="item.raw.title"
-        placeholder="0"
-        persistent-placeholder
-        persistent-counter
+        :min="min"
+        :max="max"
+        :step="step"
         class="number-input px-4"
-      >
-        <template #decrement="slotProps">
-          <v-btn v-bind="slotProps" size="small" density="compact" class="spin-btn" v-on="slotProps" />
-        </template>
-        <template #increment="slotProps">
-          <v-btn v-bind="slotProps" size="small" density="compact" class="spin-btn" v-on="slotProps" />
-        </template>
-      </v-number-input>
+        tabindex="-1"
+      />
     </template>
   </v-select>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const model = defineModel<Record<string, number>>({ required: true });
+
+const props = defineProps<{
+  min?: number;
+  max?: number;
+  step?: number;
+}>();
+</script>
 
 <style scoped>
-.number-input:not(:hover) .spin-btn {
+.number-input:hover {
+  background-color: #e2e2e2;
+}
+
+.number-input:not(:hover):deep(.spin-btn) {
   visibility: hidden;
 }
 </style>
