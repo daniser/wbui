@@ -34,6 +34,7 @@ export default defineI18nLocale(() => ({
   middle_name: "Отчество",
   middle_name_placeholder: "Иванович",
   middle_name_placeholder_female: "Ивановна",
+  passengers: "Пассажиры",
   password: "Пароль",
   phone_number: "Телефон",
   phone_number_placeholder: "+7 900 123-45-67",

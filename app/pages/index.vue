@@ -41,7 +41,13 @@
             />
           </v-col>
           <v-col>
-            <PassengerTypeSelect v-model="fields.passengers" :max="9" plural />
+            <PassengerTypeSelect
+              v-model="fields.passengers"
+              :label="$t('passengers')"
+              :max="9"
+              plural
+              prepend-inner-icon="mdi-account-multiple-plus"
+            />
           </v-col>
           <v-col>
             <v-btn type="submit" size="x-large" color="primary">{{ $t("search") }}</v-btn>

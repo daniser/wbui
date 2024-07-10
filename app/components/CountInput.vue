@@ -7,6 +7,7 @@
     readonly
     variant="plain"
     control-variant="split"
+    density="compact"
     hide-details
     :placeholder="min.toString()"
     persistent-counter
@@ -19,6 +20,7 @@
         size="small"
         density="compact"
         class="spin-btn"
+        tabindex="-1"
         v-on="slotProps"
         @click="onClickDown"
       />
@@ -30,6 +32,7 @@
         size="small"
         density="compact"
         class="spin-btn"
+        tabindex="-1"
         v-on="slotProps"
         @click="onClickUp"
       />
