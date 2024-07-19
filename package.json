@@ -12,10 +12,10 @@
     "prettify": "prettier --write ."
   },
   "devDependencies": {
-    "@maskito/core": "^3.0.0",
-    "@maskito/kit": "^3.0.0",
-    "@maskito/phone": "^3.0.0",
-    "@maskito/vue": "^3.0.0",
+    "@maskito/core": "^2.5.0",
+    "@maskito/kit": "^2.5.0",
+    "@maskito/phone": "^2.5.0",
+    "@maskito/vue": "^2.5.0",
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/color-mode": "^3.4.2",

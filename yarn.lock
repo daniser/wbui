@@ -1325,40 +1325,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@maskito/core@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@maskito/core@npm:3.0.0"
-  checksum: 10c0/22b41da6e157dfc8682b3e3dc8edb33a9607726d988eec5bce6c1ccdc46b474e0e740f344ab356a2b09d8f335011eadf5d8380b53a2f642f75eb40a15eb6794f
+"@maskito/core@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@maskito/core@npm:2.5.0"
+  checksum: 10c0/5325ac3be323abed6bd3d489f859e5bb540a7874b861c322bee412420aa0a4f3ee17fe7ebda1f6dfe0591aa23b241076ffe5b589ae94411d8f8555ed10735d8d
   languageName: node
   linkType: hard
 
-"@maskito/kit@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@maskito/kit@npm:3.0.0"
+"@maskito/kit@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@maskito/kit@npm:2.5.0"
   peerDependencies:
-    "@maskito/core": ^3.0.0
-  checksum: 10c0/dd8022b4671bb45e8c8c3cd6c0e2b13f3779a577d0c05765704f456bf89e52e771a67acbe68ebd270d75ac6b1f4a09e158d730f69f199143047ae047ca7c82ac
+    "@maskito/core": ^2.5.0
+  checksum: 10c0/3a1c0337cfb12ec95740da60b26223f9055980b3fd106d21569f4c6a55f2a729cc0bd15e18319ad6a7a0ad213030406df795c34224fbf651b2760656584095a2
   languageName: node
   linkType: hard
 
-"@maskito/phone@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@maskito/phone@npm:3.0.0"
+"@maskito/phone@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@maskito/phone@npm:2.5.0"
   peerDependencies:
-    "@maskito/core": ^3.0.0
-    "@maskito/kit": ^3.0.0
+    "@maskito/core": ^2.5.0
+    "@maskito/kit": ^2.5.0
     libphonenumber-js: ">=1.0.0"
-  checksum: 10c0/b88b09b873de2d7997bc88f297f1fc970afe8767f20b45ccd87430bbd00b8e2dc4cc4667efbb931494976b96c2ac5a624eb097b1c379b04870c9f0fd10ae3dad
+  checksum: 10c0/49783942cc5e7bf1baff588414bb461ae76bc52af6114d8498f1a6ca5f18caddda1985c573492c1859d385525e6358b3bcffe74fe43b40e83bcbc4ee8b4ae546
   languageName: node
   linkType: hard
 
-"@maskito/vue@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@maskito/vue@npm:3.0.0"
+"@maskito/vue@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@maskito/vue@npm:2.5.0"
   peerDependencies:
-    "@maskito/core": ^3.0.0
+    "@maskito/core": ^2.5.0
     vue: ">=3.0.0"
-  checksum: 10c0/1f04fec365984dca4fa50059b69ac04efe039eb07939ccad90a852b963f49a4f157438e4a9c9d29aed578b665986f15b78cba9c7ab40475fe000146971b25016
+  checksum: 10c0/01f45de716696a0e487fb2f810119d1c9f180d96e59fbebd6ce612192efafd92b822661b0fbbb46b9faa853dd7de9a1ef00aaf0955cd48cfe1fb68c08e9f399b
   languageName: node
   linkType: hard
 
@@ -10627,10 +10627,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wbui@workspace:."
   dependencies:
-    "@maskito/core": "npm:^3.0.0"
-    "@maskito/kit": "npm:^3.0.0"
-    "@maskito/phone": "npm:^3.0.0"
-    "@maskito/vue": "npm:^3.0.0"
+    "@maskito/core": "npm:^2.5.0"
+    "@maskito/kit": "npm:^2.5.0"
+    "@maskito/phone": "npm:^2.5.0"
+    "@maskito/vue": "npm:^2.5.0"
     "@mdi/font": "npm:^7.4.47"
     "@nuxt/eslint": "npm:^0.3.13"
     "@nuxtjs/color-mode": "npm:^3.4.2"
