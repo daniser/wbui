@@ -15,8 +15,10 @@
 
 <script setup lang="ts">
 import { maskito as vMaskito } from "@maskito/vue";
+import { maskitoAddOnFocusPlugin, maskitoRemoveOnBlurPlugin } from "@maskito/kit";
 import { maskitoPhoneOptionsGenerator, maskitoGetCountryFromNumber } from "@maskito/phone";
 import metadata from "libphonenumber-js/min/metadata";
+import { getCountryCallingCode } from "libphonenumber-js/core";
 import type { CountryCode } from "libphonenumber-js";
 
 import { getEmojiFlag, type TCountryCode } from "countries-list";
@@ -43,14 +45,21 @@ const props = withDefaults(
   },
 );
 
-const maskitoPhoneOptions = computed(() =>
-  maskitoPhoneOptionsGenerator({
+const prefix = computed(() => {
+  return props.country ? "+" + getCountryCallingCode(props.country as CountryCode, metadata) + " " : undefined;
+});
+
+const maskitoPhoneOptions = computed(() => ({
+  ...maskitoPhoneOptionsGenerator({
     metadata,
     countryIsoCode: props.country as CountryCode | undefined,
     strict: props.strict,
     separator: props.separator,
   }),
-);
+  ...(prefix.value && {
+    plugins: [maskitoAddOnFocusPlugin(prefix.value), maskitoRemoveOnBlurPlugin(prefix.value)],
+  }),
+}));
 
 const numberCountry = computed(() =>
   phone.value ? (maskitoGetCountryFromNumber(phone.value, metadata) as TCountryCode | undefined) : undefined,
