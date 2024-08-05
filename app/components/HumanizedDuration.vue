@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+import humanizeDuration from "~/utils/humanize-duration";
 import type { Locale } from "@intlify/core-base";
 
 defineProps<{
