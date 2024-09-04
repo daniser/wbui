@@ -39,12 +39,12 @@
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.3.0",
-    "vue": "^3.4.38",
+    "typescript-eslint": "^8.4.0",
+    "vue": "^3.5.0",
     "vue-debounce": "^5.0.0",
     "vue-router": "^4.4.3",
     "vue-tsc": "^2.1.4",
-    "vuetify-nuxt-module": "^0.18.0"
+    "vuetify-nuxt-module": "^0.18.2"
   },
   "packageManager": "yarn@4.4.1"
 }
