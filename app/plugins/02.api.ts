@@ -11,22 +11,16 @@ export default defineNuxtPlugin({
     const api = $fetch.create({
       baseURL: config.public.apiBase as string,
       async onRequest({ options }) {
-        options.headers = {
-          ...(options.headers || {}),
-          Accept: "application/json",
-          Authorization: `${token.token_type} ${token.access_token}`,
-        };
+        options.headers.set("Accept", "application/json");
+        options.headers.set("Authorization", `${token.token_type} ${token.access_token}`);
       },
     });
 
     const capi = $fetch.create({
       baseURL: config.public.apiBase as string,
       async onRequest({ options }) {
-        options.headers = {
-          ...(options.headers || {}),
-          Accept: "application/json",
-          Authorization: `${ctoken.token_type} ${ctoken.access_token}`,
-        };
+        options.headers.set("Accept", "application/json");
+        options.headers.set("Authorization", `${ctoken.token_type} ${ctoken.access_token}`);
       },
     });
 

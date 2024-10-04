@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     },
   },
   build: {
-    transpile: ["pinia-orm", "vue-debounce"],
+    transpile: ["pinia-orm"],
   },
   compatibilityDate: "2024-07-02",
   devtools: { enabled: true },
@@ -63,6 +63,7 @@ export default defineNuxtConfig({
         "dayjs",
         "humanize-duration",
         "libphonenumber-js/min/metadata",
+        "vue-debounce",
         "@maskito/vue",
         "@maskito/phone",
       ],
