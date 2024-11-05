@@ -103,7 +103,7 @@ export default defineNuxtConfig({
       },
     ],
     lazy: true,
-    langDir: "lang",
+    langDir: "locales",
     strategy: "prefix_and_default",
     defaultLocale: "ru",
   },
