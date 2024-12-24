@@ -46,7 +46,7 @@ export default NuxtAuthHandler({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: Credentials) {
-        const userToken = await useStorage("session").getItem<TokenResponse>("token");
+        const userToken = await useStorage<TokenResponse>("session").getItem("token");
 
         const customerToken = await $fetch<TokenResponse>(`${config.public.apiBase}/customer/token`, {
           method: "POST",
