@@ -26,7 +26,7 @@ import type Person from "~/models/Person";
 
 definePageMeta({
   layout: "profile",
-  middleware: "auth",
+  middleware: "sidebase-auth",
 });
 
 const personRepo = computed(() => useRepo(PersonRepository));

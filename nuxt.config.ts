@@ -26,20 +26,20 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     auth: {
-      secret: process.env.AUTH_SECRET,
-      baseUrl: process.env.AUTH_BASE_URL,
+      secret: "",
+      baseUrl: "",
     },
     user: {
-      clientId: process.env.USER_CLIENT_ID,
-      clientSecret: process.env.USER_CLIENT_SECRET,
+      clientId: "",
+      clientSecret: "",
     },
     customer: {
-      clientId: process.env.CUSTOMER_CLIENT_ID,
-      clientSecret: process.env.CUSTOMER_CLIENT_SECRET,
+      clientId: "",
+      clientSecret: "",
     },
     github: {
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      clientId: "",
+      clientSecret: "",
     },
     public: {
       apiBase: "",
