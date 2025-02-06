@@ -1,3 +1,5 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   future: {
@@ -11,6 +13,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["pinia-orm"],
   },
+  css: ["~/assets/css/main.css"],
   compatibilityDate: "2024-07-02",
   devtools: { enabled: true },
   features: { devLogs: false },
@@ -18,7 +21,6 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
-    "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "@pinia-orm/nuxt",
     "@sidebase/nuxt-auth",
@@ -68,6 +70,7 @@ export default defineNuxtConfig({
         "@maskito/phone",
       ],
     },
+    plugins: [tailwindcss()],
   },
   auth: {
     provider: {
