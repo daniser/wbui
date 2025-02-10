@@ -25,8 +25,8 @@
           <FlagIcon :country="item.raw.iso2" class="-ml-1" />
         </template>
         <template v-else-if="flag !== 'none'" #prepend>
-          <span v-if="flag === 'emoji'" class="-ml-1 mr-1.5 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
-          <span v-else class="-ml-1 mr-0.5 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
+          <span v-if="flag === 'emoji'" class="mr-1.5 -ml-1 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
+          <span v-else class="mr-0.5 -ml-1 w-6 text-center">{{ getEmojiFlag(item.raw.iso2) }}</span>
         </template>
       </v-list-item>
     </template>

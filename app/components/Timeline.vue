@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline flex align-end"><slot /></div>
+  <div class="timeline align-end flex"><slot /></div>
 </template>
 
 <script setup lang="ts">

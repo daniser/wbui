@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="py-2 my-2">
+  <v-sheet class="my-2 py-2">
     <v-row>
       <v-col cols="3">
         <div class="text-xl font-semibold">{{ $d(firstSegment.dateBegin, "time") }}</div>

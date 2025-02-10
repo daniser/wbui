@@ -3,7 +3,7 @@
     <Head>
       <Title>{{ $t("search_flights") }}</Title>
     </Head>
-    <v-form class="h-[calc(100vh-100px)] flex items-center" @submit.prevent="onSubmit">
+    <v-form class="flex h-[calc(100vh-100px)] items-center" @submit.prevent="onSubmit">
       <v-container>
         <v-row>
           <v-col cols="6" class="flex">

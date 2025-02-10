@@ -11,7 +11,7 @@
           </v-col>
           <v-divider vertical :thickness="2" class="border-opacity-100" />
           <v-col>
-            <v-sheet class="px-2 mx-2">
+            <v-sheet class="mx-2 px-2">
               <v-row>
                 <v-col cols="12" class="text-2xl font-bold">
                   <MoneyAmount :amount="fareTotal.amount" :currency="fareTotal.currency" compact />
