@@ -2,9 +2,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
   app: {
     head: {
       titleTemplate: "%s - WB UI",
@@ -14,7 +11,7 @@ export default defineNuxtConfig({
     transpile: ["pinia-orm"],
   },
   css: ["~/assets/css/main.css"],
-  compatibilityDate: "2024-07-02",
+  compatibilityDate: "2025-07-21",
   devtools: { enabled: true },
   features: { devLogs: false },
   modules: [
@@ -82,9 +79,6 @@ export default defineNuxtConfig({
     fallback: "light",
   },
   i18n: {
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     locales: [
       {
         code: "en",
@@ -108,7 +102,6 @@ export default defineNuxtConfig({
         flag: "UA",
       },
     ],
-    lazy: true,
     langDir: "locales",
     strategy: "prefix_and_default",
     defaultLocale: "ru",
