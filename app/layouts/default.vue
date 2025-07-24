@@ -30,6 +30,6 @@ const theme = useTheme();
 
 watch(
   () => colorMode.value,
-  (value) => (theme.global.name.value = value),
+  (value) => theme.change(value),
 );
 </script>

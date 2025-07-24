@@ -4,6 +4,7 @@
     :min="min"
     :max="max"
     :step="step"
+    decimal-separator="."
     readonly
     variant="plain"
     control-variant="split"
@@ -21,7 +22,6 @@
         density="compact"
         class="spin-btn"
         tabindex="-1"
-        v-on="slotProps"
         @click="onClickDown"
       />
     </template>
@@ -33,7 +33,6 @@
         density="compact"
         class="spin-btn"
         tabindex="-1"
-        v-on="slotProps"
         @click="onClickUp"
       />
     </template>
