@@ -19,7 +19,7 @@
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint": "^1.9.0",
     "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/i18n": "^10.0.5",
+    "@nuxtjs/i18n": "^10.0.6",
     "@pinia-orm/nuxt": "^1.10.2",
     "@pinia/nuxt": "^0.11.2",
     "@sidebase/nuxt-auth": "^1.0.1",
@@ -31,7 +31,7 @@
     "eslint": "^9.33.0",
     "flag-icons": "^7.5.0",
     "humanize-duration": "^3.33.0",
-    "libphonenumber-js": "^1.12.12",
+    "libphonenumber-js": "^1.12.13",
     "next-auth": "~4.21.1",
     "nuxt": "^4.0.3",
     "pinia": "^3.0.3",
@@ -40,12 +40,12 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.1",
+    "typescript-eslint": "^8.40.0",
     "vue": "^3.5.18",
     "vue-debounce": "^5.0.1",
     "vue-router": "^4.5.1",
-    "vue-tsc": "^3.0.5",
+    "vue-tsc": "^3.0.6",
     "vuetify-nuxt-module": "^0.18.7"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.3"
 }
